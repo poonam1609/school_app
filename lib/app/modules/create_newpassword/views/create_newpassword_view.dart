@@ -11,6 +11,7 @@ import '../../../routes/app_pages.dart';
 import '../controllers/create_newpassword_controller.dart';
 
 class CreateNewpasswordView extends GetView<CreateNewpasswordController> {
+  final _formKey = GlobalKey<FormState>();
   CreateNewpasswordController createNewpasswordController = Get.put(CreateNewpasswordController());
   CreateNewpasswordView({super.key});
   @override
@@ -35,7 +36,7 @@ class CreateNewpasswordView extends GetView<CreateNewpasswordController> {
            ),
            child: SafeArea(
                child: Form(
-                 key: createNewpasswordController.formKey,
+                 key: _formKey,
                  child: Padding(
                    padding: EdgeInsets.symmetric(horizontal: 5.w,vertical: 3.h),
                    child: Column(

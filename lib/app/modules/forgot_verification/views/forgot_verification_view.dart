@@ -52,6 +52,7 @@ class ForgotVerificationView extends GetView<ForgotVerificationController> {
                     keyboardType: TextInputType.number,
                     animationType: AnimationType.fade,
                     pinTheme: PinTheme(
+                      inactiveFillColor: Colors.white,
                       shape: PinCodeFieldShape.box,
                       borderRadius: BorderRadius.circular(12),
                       fieldHeight: 5.9.h,

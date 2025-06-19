@@ -10,6 +10,7 @@ import 'package:sizer_pro/sizer.dart';
 import '../controllers/forget_password_controller.dart';
 
 class ForgetPasswordView extends GetView<ForgetPasswordController> {
+  final _formKey = GlobalKey<FormState>();
   ForgetPasswordController forgetPasswordController = Get.put<ForgetPasswordController>(ForgetPasswordController());
    ForgetPasswordView({super.key});
   @override
@@ -35,7 +36,7 @@ class ForgetPasswordView extends GetView<ForgetPasswordController> {
             ),
             child: SafeArea(
                 child: Form(
-              key: forgetPasswordController.formKey,
+              key: _formKey,
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 5.w,vertical: 3.h),
                 child: Column(
@@ -52,7 +53,7 @@ class ForgetPasswordView extends GetView<ForgetPasswordController> {
                     CustomTextField(
                       prefixIcon: Icons.email_outlined,
                         controller: forgetPasswordController.forgetController, labelText:"" , hintText: '', obscureText: false),
-                    SizedBox(height: 4.h,),
+                    SizedBox(height: 3.h,),
                     PrimaryButton(text: 'Reset Password', onPressed: (){
                       Get.toNamed(Routes.FORGOT_VERIFICATION);
                       },color: Theme.of(context).primaryColor,)

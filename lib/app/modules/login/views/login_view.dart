@@ -9,6 +9,7 @@ import '../../../../HelperWidget/customeTextfield.dart';
 import '../controllers/login_controller.dart';
 
 class LoginView extends GetView<LoginController> {
+  final formKey = GlobalKey<FormState>();
   final LoginController loginController = Get.put(LoginController());
 
   @override
@@ -30,7 +31,7 @@ class LoginView extends GetView<LoginController> {
               child: SingleChildScrollView(
                 padding: EdgeInsets.all(2.h),
                 child: Form(
-                  key: loginController.formKey,
+                  key: formKey,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
