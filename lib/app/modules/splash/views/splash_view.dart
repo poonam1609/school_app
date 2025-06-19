@@ -38,9 +38,9 @@ class SplashView extends GetView<SplashController> {
                       ),
                       SizedBox(height: 3.h),
                      CustomText(text: 'EduNest', fontWeight: FontWeight.bold, color: Color(0xff363939),
-                       fontSize:10.sp,),
-                     CustomText(text: 'The Future of Learning, in Your Hands.',color: Color(0xff737373), fontSize: 6.sp)
-
+                       fontSize:11.3.sp,),
+                      SizedBox(height: 1.5.h),
+                     CustomText(text: 'The Future of Learning, in Your Hands.',color: Color(0xff737373), fontSize: 5.6.sp ,fontWeight: FontWeight.bold)
                     ],
                   ),
                 ),

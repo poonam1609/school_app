@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           title: 'Sizer',
           theme: ThemeData(
+            fontFamily: 'Inter',
             primaryColor: primaryColor,
             scaffoldBackgroundColor: Color(0xffF0F1F5),
             colorScheme: ColorScheme.fromSwatch().copyWith(

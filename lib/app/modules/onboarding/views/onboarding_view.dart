@@ -21,6 +21,7 @@ class OnboardingView extends GetView<OnboardingController> {
         body: SafeArea(
           child: Column(
             children: [
+              SizedBox(height: 2.h,),
               Align(
                 alignment: Alignment.topRight,
                 child: TextButton(
@@ -30,12 +31,12 @@ class OnboardingView extends GetView<OnboardingController> {
                     style: TextStyle(
                       color: Colors.grey,
                       fontSize: 6.sp,
-                      fontWeight: FontWeight.w500,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
               ),
-              // Main PageView
+
               Expanded(
                 child: PageView.builder(
                   controller: onboardingController.pageController,
@@ -60,7 +61,7 @@ class OnboardingView extends GetView<OnboardingController> {
                   ),
                 ),
               ),
-            SizedBox(height: 5.h,),
+            SizedBox(height: 6.h,),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 4.w),
                 child: Obx(() =>PrimaryButton(

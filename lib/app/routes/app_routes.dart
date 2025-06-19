@@ -19,6 +19,9 @@ abstract class Routes {
   static const PROMOTE_STUDENT = _Paths.PROMOTE_STUDENT;
   static const STUDENT_ID_CARD = _Paths.STUDENT_ID_CARD;
   static const FORGET_PASSWORD = _Paths.FORGET_PASSWORD;
+  static const FORGOT_VERIFICATION = _Paths.FORGOT_VERIFICATION;
+  static const CREATE_NEWPASSWORD = _Paths.CREATE_NEWPASSWORD;
+  static const PASSWORD_RESET_COMPLETE = _Paths.PASSWORD_RESET_COMPLETE;
 }
 
 abstract class _Paths {
@@ -39,4 +42,7 @@ abstract class _Paths {
   static const PROMOTE_STUDENT = '/promote-student';
   static const STUDENT_ID_CARD = '/student-id-card';
   static const FORGET_PASSWORD = '/forget-password';
+  static const FORGOT_VERIFICATION = '/forgot-verification';
+  static const CREATE_NEWPASSWORD = '/create-newpassword';
+  static const PASSWORD_RESET_COMPLETE = '/password-reset-complete';
 }

@@ -34,31 +34,24 @@ class LoginView extends GetView<LoginController> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      SizedBox(height: 7.h),
+                      SizedBox(height: 4.h),
                       Hero(
                         tag: 'logo',
                         child: Container(
                           padding: EdgeInsets.all(1.h),
                           decoration: BoxDecoration(
-                            // color: Theme.of(context).primaryColor,
-                            // shape: BoxShape.circle,
                           ),
                           child: SvgPicture.asset(
                             "assets/image/splash_img.svg",
                             height: 18.h,
                           ),
-                          // Icon(
-                          //   Icons.school,
-                          //   size: 16.sp,
-                          //   color: Colors.white,
-                          // ),
                         ),
                       ),
                       SizedBox(height: 2.h),
                       Text(
                         'Sign in to your\nAccount',
                         style: TextStyle(
-                          fontSize: 12.sp,
+                          fontSize: 11.sp,
                           fontWeight: FontWeight.bold,
                         ),
                         textAlign: TextAlign.center,
@@ -66,8 +59,8 @@ class LoginView extends GetView<LoginController> {
                       SizedBox(height: 1.h),
                       CustomText(
                         text: 'Enter your email and password to log in ',
-                        fontSize: 6.sp,
-                        color: Colors.grey[600]!,
+                        fontSize: 4.6.sp,fontWeight: FontWeight.bold,
+                        color: Colors.grey[500]!,
                       ),
                       SizedBox(height: 3.h),
                       Material(
@@ -88,8 +81,9 @@ class LoginView extends GetView<LoginController> {
                             children: [
                               CustomText(
                                 text: "Email",
+                                fontSize: 4.6.sp,fontWeight: FontWeight.bold,
                                 color: Colors.grey.shade600,
-                                fontWeight: FontWeight.w600,
+
                               ),
                               SizedBox(height: 1.h),
                               CustomTextField(
@@ -101,13 +95,13 @@ class LoginView extends GetView<LoginController> {
                                 hintText: 'Email',
                                 obscureText: false,
                               ),
-                              SizedBox(height: 2.h),
+                              SizedBox(height: 4.h),
                               CustomText(
                                 text: "Password",
                                 color: Colors.grey.shade600,
-                                fontWeight: FontWeight.w600,
+                                fontSize: 4.6.sp,fontWeight: FontWeight.bold,
                               ),
-
+                              SizedBox(height: 1.h),
                               CustomTextField(
                                 color: Color(0xffCBD2E0),
                                 isPassword: true,
@@ -118,7 +112,6 @@ class LoginView extends GetView<LoginController> {
                                 controller: loginController.passwordController,
                                 hintText: 'Password',
                                 prefixIcon: Icons.lock_open_outlined,
-
                                 labelText: '',
                                 obscureText: false,
                               ),
@@ -146,30 +139,35 @@ class LoginView extends GetView<LoginController> {
                                       visualDensity: VisualDensity(
                                         horizontal: -4,
                                         vertical: -4,
-                                      ), // 🔽 reduces spacing
+                                      ),
                                       materialTapTargetSize:
                                           MaterialTapTargetSize
-                                              .shrinkWrap, // 🔽 reduces touch area padding
+                                              .shrinkWrap,
                                     ),
                                   ),
                                   SizedBox(
                                     width: 6,
-                                  ), // 🔧 adjust space between checkbox and text
+                                  ),
                                   CustomText(
                                     text: "Remember me",
-                                    fontSize: 6.sp,
+                                    fontSize: 4.6.sp,fontWeight: FontWeight.bold,
                                     color: Colors.grey.shade600,
                                   ),
-                                  SizedBox(width: 13.w),
-                                  CustomText(
-                                    text: "Forget Password.?",
-                                    fontWeight: FontWeight.w700,
-                                    fontSize: 6.sp,
-                                    color: Color(0xffA6A6A6),
+                                  SizedBox(width: 25.w),
+                                  InkWell(
+                                    onTap: (){
+                                      Get.toNamed(Routes.FORGET_PASSWORD);
+                                    },
+                                    child: CustomText(
+                                      text: "Forgot Password.?",
+                                      fontWeight: FontWeight.w700,
+                                      fontSize: 4.6.sp,
+                                      color: Color(0xffA6A6A6),
+                                    ),
                                   ),
                                 ],
                               ),
-                              SizedBox(height: 3.h),
+                              SizedBox(height: 5.h),
                               PrimaryButton(
                                 color: Theme.of(context).primaryColor,
                                 text: 'Login',

@@ -8,7 +8,7 @@ class SplashController extends GetxController with GetSingleTickerProviderStateM
   late Animation<double> scaleAnimation;
 
   Future<void> navigateToOnboarding() async {
-    await Future.delayed(Duration(seconds: 4));
+    await Future.delayed(Duration(seconds: 3));
     Get.offAllNamed(Routes.ONBOARDING);
   }
   @override

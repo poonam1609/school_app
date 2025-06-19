@@ -19,28 +19,28 @@ class OnboardingPageItem extends StatelessWidget {
           children: [
             // SizedBox(height: 7.h,),
             Padding(
-              padding: EdgeInsets.only(top: 8.h),
+              padding: EdgeInsets.only(top: 10.h),
               child: SvgPicture.asset(
                 data.imagePath,
                 fit: BoxFit.contain,
                 // color:  Theme.of(context).primaryColor,
               ),
             ),
-            SizedBox(height: 10.h),
+            SizedBox(height: 15.h),
             Text(
               data.title,
               style: TextStyle(
-                fontSize: 10.sp,
-                fontWeight: FontWeight.bold,
+                fontSize: 10.6.sp,
+                fontWeight: FontWeight.w600,
                 color: Colors.black87,
               ),
               textAlign: TextAlign.center,
             ),
-            SizedBox(height: 1.h),
+            SizedBox(height: 2.h),
             Text(
               data.description,
               style: TextStyle(
-                fontSize: 6.sp,
+                fontSize: 5.3.sp,
                 color: Colors.grey[600],
               ),
               textAlign: TextAlign.center,

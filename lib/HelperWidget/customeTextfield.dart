@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
+import 'package:sizer_pro/sizer.dart';
 
 class CustomTextField extends StatelessWidget {
   final TextEditingController controller;
@@ -16,6 +17,7 @@ class CustomTextField extends StatelessWidget {
   final RxBool? isPasswordVisible;
   final VoidCallback? togglePasswordVisibility;
   final Color? color;
+
 
 
   CustomTextField({
@@ -40,7 +42,6 @@ class CustomTextField extends StatelessWidget {
     return isPassword && isPasswordVisible != null
         ? Obx(() {
           return TextFormField(
-
             controller: controller,
             obscureText:
                 isPassword ? !(isPasswordVisible?.value ?? false) : false,
@@ -48,6 +49,7 @@ class CustomTextField extends StatelessWidget {
             enabled: enabled,
             validator: validator,
             decoration: InputDecoration(
+              contentPadding: EdgeInsets.symmetric(vertical: 12, horizontal: 12),
 
               labelText: labelText,
               prefixIcon: prefixIcon != null
@@ -68,25 +70,25 @@ class CustomTextField extends StatelessWidget {
               )
                   : null,
               enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(12),
-                borderSide: BorderSide(color: color ?? Colors.grey),
+                borderRadius: BorderRadius.circular(1.h),
+                borderSide: BorderSide(color: color ?? Colors.grey, width: 1),
               ),
               focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(12),
-                borderSide: BorderSide(color: color ?? Theme.of(context).primaryColor, width: 2),
+                borderRadius: BorderRadius.circular(1.h),
+                borderSide: BorderSide(color: color ?? Theme.of(context).primaryColor, width: 1),
               ),
               errorBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(12),
-                borderSide: BorderSide(color: Colors.red),
+                borderRadius: BorderRadius.circular(1.h),
+                borderSide: BorderSide(color: Colors.red, width: 1),
               ),
               focusedErrorBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(12),
-                borderSide: BorderSide(color: Colors.red, width: 2),
+                borderRadius: BorderRadius.circular(1.h),
+                borderSide: BorderSide(color: Colors.red, width: 1),
               ),
 
               border: OutlineInputBorder(
                 borderSide: BorderSide( color: color ?? Colors.transparent,),
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(1.h),
               ),
               filled: true,
               fillColor: Colors.white,
@@ -98,28 +100,29 @@ class CustomTextField extends StatelessWidget {
           obscureText: isPassword,
           validator: validator,
           decoration: InputDecoration(
+            contentPadding: EdgeInsets.symmetric(vertical: 12, horizontal: 12),
             labelText: labelText,
             // hintText: hintText,
             prefixIcon:
             prefixIcon  != null
                     ? Icon(prefixIcon, color: Colors.black54)
                     : null,
-            border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+            border: OutlineInputBorder(borderRadius: BorderRadius.circular(1.h)),
             enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12),
-              borderSide: BorderSide(color: color ?? Colors.grey),
+              borderRadius: BorderRadius.circular(1.h),
+              borderSide: BorderSide(color: color ?? Colors.grey.shade300, width: 1),
             ),
             focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12),
-              borderSide: BorderSide(color: color ?? Theme.of(context).primaryColor, width: 2),
+              borderRadius: BorderRadius.circular(1.h),
+              borderSide: BorderSide(color: color ?? Theme.of(context).primaryColor, width: 1),
             ),
             errorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12),
-              borderSide: BorderSide(color: Colors.red),
+              borderRadius: BorderRadius.circular(1.h),
+              borderSide: BorderSide(color: Colors.red, width: 1),
             ),
             focusedErrorBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(12),
-              borderSide: BorderSide(color: Colors.red, width: 2),
+              borderRadius: BorderRadius.circular(1.h),
+              borderSide: BorderSide(color: Colors.red, width: 1),
             ),
 
             filled: true,

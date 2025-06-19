@@ -8,12 +8,16 @@ import '../modules/all_student/bindings/all_student_binding.dart';
 import '../modules/all_student/views/all_student_view.dart';
 import '../modules/all_teacher/bindings/all_teacher_binding.dart';
 import '../modules/all_teacher/views/all_teacher_view.dart';
+import '../modules/create_newpassword/bindings/create_newpassword_binding.dart';
+import '../modules/create_newpassword/views/create_newpassword_view.dart';
 import '../modules/edit_student/bindings/edit_student_binding.dart';
 import '../modules/edit_student/views/edit_student_view.dart';
 import '../modules/edit_teacher/bindings/edit_teacher_binding.dart';
 import '../modules/edit_teacher/views/edit_teacher_view.dart';
 import '../modules/forget_password/bindings/forget_password_binding.dart';
 import '../modules/forget_password/views/forget_password_view.dart';
+import '../modules/forgot_verification/bindings/forgot_verification_binding.dart';
+import '../modules/forgot_verification/views/forgot_verification_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/login/bindings/login_binding.dart';
@@ -22,6 +26,8 @@ import '../modules/offer_letter/bindings/offer_letter_binding.dart';
 import '../modules/offer_letter/views/offer_letter_view.dart';
 import '../modules/onboarding/bindings/onboarding_binding.dart';
 import '../modules/onboarding/views/onboarding_view.dart';
+import '../modules/password_reset_complete/bindings/password_reset_complete_binding.dart';
+import '../modules/password_reset_complete/views/password_reset_complete_view.dart';
 import '../modules/promote_student/bindings/promote_student_binding.dart';
 import '../modules/promote_student/views/promote_student_view.dart';
 import '../modules/splash/bindings/splash_binding.dart';
@@ -118,8 +124,23 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.FORGET_PASSWORD,
-      page: () => const ForgetPasswordView(),
+      page: () => ForgetPasswordView(),
       binding: ForgetPasswordBinding(),
+    ),
+    GetPage(
+      name: _Paths.FORGOT_VERIFICATION,
+      page: () => ForgotVerificationView(),
+      binding: ForgotVerificationBinding(),
+    ),
+    GetPage(
+      name: _Paths.CREATE_NEWPASSWORD,
+      page: () => CreateNewpasswordView(),
+      binding: CreateNewpasswordBinding(),
+    ),
+    GetPage(
+      name: _Paths.PASSWORD_RESET_COMPLETE,
+      page: () =>  PasswordResetCompleteView(),
+      binding: PasswordResetCompleteBinding(),
     ),
   ];
 }
