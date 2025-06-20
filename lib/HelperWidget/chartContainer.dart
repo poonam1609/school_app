@@ -21,7 +21,7 @@ class ChartContainer extends StatelessWidget {
         borderRadius: BorderRadius.circular(1.h),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.1),
+            color: Colors.grey.shade900.withOpacity(0.1),
             spreadRadius: 2,
             blurRadius: 8,
             offset: Offset(0, 4),
@@ -29,16 +29,16 @@ class ChartContainer extends StatelessWidget {
         ],
       ),
       child: Padding(
-        padding: EdgeInsets.all(3.h),
+        padding: EdgeInsets.all(2.h),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               title,
               style: TextStyle(
-                fontSize: 7.sp,
+                fontSize: 6.sp,
                 fontWeight: FontWeight.bold,
-                color: Colors.black54,
+                color: Colors.grey.shade800,
               ),
             ),
             SizedBox(height: 2.h),

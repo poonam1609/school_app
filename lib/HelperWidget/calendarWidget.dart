@@ -29,7 +29,7 @@ class CalendarWidget extends StatelessWidget {
               style: TextStyle(
                 fontSize: 7.sp,
                 fontWeight: FontWeight.bold,
-                color: Colors.grey.shade600,
+                color: Colors.grey.shade800,
               ),
             ),
             SizedBox(height: 2.h),

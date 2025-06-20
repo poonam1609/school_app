@@ -52,7 +52,7 @@ class ForgetPasswordView extends GetView<ForgetPasswordController> {
                     SizedBox(height:1.h),
                     CustomTextField(
                       prefixIcon: Icons.email_outlined,
-                        controller: forgetPasswordController.forgetController, labelText:"" , hintText: '', obscureText: false),
+                        controller: forgetPasswordController.forgetController,obscureText: false),
                     SizedBox(height: 3.h,),
                     PrimaryButton(text: 'Reset Password', onPressed: (){
                       Get.toNamed(Routes.FORGOT_VERIFICATION);

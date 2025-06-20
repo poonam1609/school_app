@@ -92,8 +92,7 @@ class LoginView extends GetView<LoginController> {
                                 controller: loginController.emailController,
                                 prefixIcon: Icons.email_outlined,
                                 keyboardType: TextInputType.emailAddress,
-                                labelText: '',
-                                hintText: 'Email',
+
                                 obscureText: false,
                               ),
                               SizedBox(height: 4.h),
@@ -111,9 +110,9 @@ class LoginView extends GetView<LoginController> {
                                 togglePasswordVisibility:
                                     loginController.togglePasswordVisibility,
                                 controller: loginController.passwordController,
-                                hintText: 'Password',
+
                                 prefixIcon: Icons.lock_open_outlined,
-                                labelText: '',
+
                                 obscureText: false,
                               ),
                               SizedBox(height: 1.h),
@@ -147,14 +146,14 @@ class LoginView extends GetView<LoginController> {
                                     ),
                                   ),
                                   SizedBox(
-                                    width: 6,
+                                    width: 2,
                                   ),
                                   CustomText(
                                     text: "Remember me",
                                     fontSize: 4.6.sp,fontWeight: FontWeight.bold,
                                     color: Colors.grey.shade600,
                                   ),
-                                  SizedBox(width: 25.w),
+                                  Spacer(),
                                   InkWell(
                                     onTap: (){
                                       Get.toNamed(Routes.FORGET_PASSWORD);

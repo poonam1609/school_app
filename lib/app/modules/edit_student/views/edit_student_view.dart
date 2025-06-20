@@ -64,8 +64,7 @@ class EditStudentView extends GetView<EditStudentController> {
                   CustomTextField(
                     prefixIcon: Icons.person,
                     controller: controller.studentName,
-                    labelText: 'Student Full Name',
-                    hintText: 'Student Full Name',
+
                     obscureText: false,
                   ),
                   SizedBox(height: 2.h),
@@ -119,8 +118,7 @@ class EditStudentView extends GetView<EditStudentController> {
                   CustomTextField(
                     prefixIcon: 	Icons.app_registration,
                     controller: controller.registration,
-                    labelText: 'Registration Number',
-                    hintText: 'Registration Number',
+
                     obscureText: false,
                   ),
                   SizedBox(height: 2.h),
@@ -136,32 +134,29 @@ class EditStudentView extends GetView<EditStudentController> {
                   CustomTextField(
                     prefixIcon: Icons.assignment_ind,
                     controller: controller.dateofadmission,
-                    labelText: 'Date of Admission',
-                    hintText: 'Date of Admission',
+
                     obscureText: false,
                   ),
                   SizedBox(height: 2.h),
                   CustomTextField(
                     prefixIcon: Icons.discount_outlined,
                     controller: controller.discountFee,
-                    labelText: 'Discount fee',
-                    hintText: 'Discount fee',
+
                     obscureText: false,
                   ),
                   SizedBox(height: 2.h),
                   CustomTextField(
                     prefixIcon: Icons.call,
                     controller: controller.mobileNumber,
-                    labelText: 'Mobile Number',
-                    hintText: 'Mobile Number',
+
                     obscureText: false,
                   ),
                   SizedBox(height: 2.h),
                   CustomTextField(
-                    hintText: 'Home Address',
+
                     controller:  controller.homeAddress,
                     prefixIcon: Icons.home,
-                    labelText: 'Home Address',
+
                     obscureText: false,
                   ),
                   SizedBox(height: 2.h),
@@ -180,21 +175,21 @@ class EditStudentView extends GetView<EditStudentController> {
                     ),
                   ),
                   CustomTextField(
-                    hintText: 'Date of Birth',
+
                     controller:  controller.dateOfBirth,
                     prefixIcon: Icons.cake,
                     suffixIcon: Icons.calendar_month,
-                    labelText: 'Date of Birth',
+
                     obscureText: false,
                     onSuffixTap: () =>  controller.selectDate(context,  controller.dateOfBirth),
                   ),
                   SizedBox(height: 2.h),
                   CustomTextField(
-                    hintText: 'Any Identification mark.?',
+
                     controller:  controller.idMark,
                     prefixIcon: Icons.contact_page,
                     suffixIcon: Icons.calendar_month,
-                    labelText: 'Any Identification mark.?',
+
                     obscureText: false,
                     onSuffixTap: () =>  controller.selectDate(context,  controller.dateOfBirth),
                   ),
@@ -211,18 +206,18 @@ class EditStudentView extends GetView<EditStudentController> {
                     ),
                   ),
                   CustomTextField(
-                    hintText: 'Disease if any.?',
+
                     controller:  controller.disease,
                     prefixIcon: 	Icons.coronavirus,
-                    labelText: 'Disease if any.?',
+
                     obscureText: false,
                   ),
                   SizedBox(height: 2.h),
                   CustomTextField(
-                    hintText: 'Student Birth Form ID/NIC',
+
                     controller:  controller.studentBirthForm,
                     prefixIcon: Icons.contact_page_outlined,
-                    labelText: "Student Birth Form ID/NIC",
+
                     obscureText: false,
                   ),
                   SizedBox(height: 2.h),
@@ -237,26 +232,26 @@ class EditStudentView extends GetView<EditStudentController> {
                     ),
                   ),
                   CustomTextField(
-                    hintText: 'Previous School',
+
                     controller:  controller.previousSchool,
                     prefixIcon: Icons.school,
-                    labelText: 'Previous School',
+
                     obscureText: false,
                   ),
                   SizedBox(height: 2.h),
                   CustomTextField(
-                    hintText: 'Previous ID/Board Roll No.',
+
                     controller:  controller.previousID,
                     prefixIcon: 	Icons.badge,
-                    labelText: 'Previous ID/Board Roll No.',
+
                     obscureText: false,
                   ),
                   SizedBox(height: 2.h),
                   CustomTextField(
-                    hintText: 'Any Additional Note.?',
+
                     controller:  controller.note,
                     prefixIcon: Icons.note_alt,
-                    labelText: 'Any Additional Note.?',
+
                     obscureText: false,
                   ),
                   SizedBox(height: 2.h),
@@ -356,30 +351,30 @@ class EditStudentView extends GetView<EditStudentController> {
                     ),
                   ),
                   CustomTextField(
-                    hintText: 'Select Family',
+
                     controller:  controller.selectFamily,
                     prefixIcon: Icons.family_restroom,
                     keyboardType: TextInputType.number,
-                    labelText: 'Select Family',
+
                     obscureText: false,
                   ),
 
                   SizedBox(height: 2.h),
                   CustomTextField(
-                    hintText: 'Enter Total Siblings',
+
                     controller:  controller.totalSibling,
                     prefixIcon: Icons.group,
                     keyboardType: TextInputType.number,
-                    labelText: 'Enter Total Siblings',
+
                     obscureText: false,
                   ),
                   SizedBox(height: 2.h),
                   CustomTextField(
-                    hintText: 'Enter Current Address',
+
                     controller:  controller.currentAddress,
                     prefixIcon: 	Icons.home,
                     keyboardType: TextInputType.number,
-                    labelText: 'Enter Current Address',
+
                     obscureText: false,
                   ),
                   SizedBox(height: 2.h),
@@ -387,51 +382,51 @@ class EditStudentView extends GetView<EditStudentController> {
                     fontSize: 8.sp,),
                   SizedBox(height: 2.h),
                   CustomTextField(
-                    hintText: 'Father Name',
+
                     controller:  controller.fatherName,
                     prefixIcon: Icons.person_outline,
-                    labelText: 'Father Name',
+
                     obscureText: false,
                   ),
 
                   SizedBox(height: 2.h),
                   CustomTextField(
-                    hintText: 'Education',
+
                     controller:  controller.fatherEducation,
                     prefixIcon:Icons.menu_book,
-                    labelText: 'Education',
+
                     obscureText: false,
                   ),
                   SizedBox(height: 2.h),
                   CustomTextField(
-                    hintText: 'National ID',
+
                     controller:  controller.fatherNationalID,
                     prefixIcon: 	Icons.credit_card,
-                    labelText: 'National ID',
+
                     obscureText: false,
                   ),
                   SizedBox(height: 2.h),
                   CustomTextField(
-                    hintText: 'Mobile Number',
+
                     controller:  controller.fatherMobile,
                     prefixIcon:Icons.phone_android,
-                    labelText: 'Mobile Number',
+
                     obscureText: false,
                   ),
                   SizedBox(height: 2.h),
                   CustomTextField(
-                    hintText: 'Occupation',
+
                     controller:  controller.fatherOccupation,
                     prefixIcon: Icons.work,
-                    labelText: 'Occupation',
+
                     obscureText: false,
                   ),
                   SizedBox(height: 2.h),
                   CustomTextField(
-                    hintText: 'Profession',
+
                     controller:  controller.fatherProfession,
                     prefixIcon: Icons.business_center,
-                    labelText: 'Profession',
+
                     obscureText: false,
                   ),
                   SizedBox(height: 2.h),
@@ -447,52 +442,52 @@ class EditStudentView extends GetView<EditStudentController> {
                   CustomText(text: '4. Mother Information'),
                   SizedBox(height: 2.h),
                   CustomTextField(
-                    hintText: 'Mother Name',
+
                     controller:  controller.motherName,
                     prefixIcon: Icons.person,
                     keyboardType: TextInputType.number,
-                    labelText: 'Mother Name',
+
                     obscureText: false,
                   ),
                   SizedBox(height: 2.h),
                   CustomTextField(
-                    hintText: 'Education',
+
                     controller:  controller.motherEducation,
                     prefixIcon: Icons.school,
-                    labelText: 'Education',
+
                     obscureText: false,
                   ),
 
                   SizedBox(height: 2.h),
                   CustomTextField(
-                    hintText: 'National ID',
+
                     controller:  controller.motherNationalID,
                     prefixIcon: Icons.credit_card,
-                    labelText: 'National ID',
+
                     obscureText: false,
                   ),
                   SizedBox(height: 2.h),
                   CustomTextField(
-                    hintText: 'Mobile Number',
+
                     controller:  controller.motherMobile,
                     prefixIcon: Icons.phone_android ,
-                    labelText: 'Mobile Number',
+
                     obscureText: false,
                   ),
                   SizedBox(height: 2.h),
                   CustomTextField(
-                    hintText: 'Occupation',
+
                     controller:  controller.motherOccupation,
                     prefixIcon: 	Icons.work,
-                    labelText: 'Occupation',
+
                     obscureText: false,
                   ),
                   SizedBox(height: 2.h),
                   CustomTextField(
-                    hintText: 'Profession',
+
                     controller:  controller.motherProfession,
                     prefixIcon: 	Icons.business_center,
-                    labelText: 'Profession',
+
                     obscureText: false,
                   ),
                   SizedBox(height: 2.h),

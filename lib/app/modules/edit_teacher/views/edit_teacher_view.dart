@@ -67,7 +67,7 @@ class EditTeacherView extends GetView<EditTeacherController> {
                     CustomTextField(
                       prefixIcon: Icons.person,
                       controller: controller.employeeName,
-                      labelText: 'Employee Name', hintText: 'Employee Name', obscureText: false,
+                      obscureText: false,
                     ),
                     SizedBox(height: 2.h),
                     Obx(() => Container(
@@ -109,7 +109,7 @@ class EditTeacherView extends GetView<EditTeacherController> {
                     CustomTextField(
                       prefixIcon: Icons.call,
                       controller: controller.mobileNumber,
-                      labelText: 'Mobile Number', hintText: 'Mobile Number', obscureText: false,
+                     obscureText: false,
                     ),
                     SizedBox(height: 2.h),
                     CustomTextField(
@@ -117,8 +117,7 @@ class EditTeacherView extends GetView<EditTeacherController> {
                       suffixIcon: Icons.calendar_month,
                       controller: controller.dateOfJoin,
                       onSuffixTap:  () => controller.selectDate(context, controller.dateOfJoin),
-                      labelText: 'Date of Join',
-                      hintText: 'Date of Join', obscureText: false,
+                     obscureText: false,
                     ),
                     SizedBox(height: 2.h),
                     Obx(() => CustomDropdown(
@@ -128,10 +127,10 @@ class EditTeacherView extends GetView<EditTeacherController> {
                     )),
                     SizedBox(height: 2.h),
                     CustomTextField(
-                      hintText: 'Monthly Salary',
+
                       controller: controller.monthlySalary,
                       prefixIcon: Icons.attach_money,
-                      keyboardType: TextInputType.number, labelText: 'Monthly Salary', obscureText: false,
+                      keyboardType: TextInputType.number, obscureText: false,
                     ),
                     SizedBox(height: 2.h),
                     Text(
@@ -144,22 +143,22 @@ class EditTeacherView extends GetView<EditTeacherController> {
                     ),
                     SizedBox(height: 2.h),
                     CustomTextField(
-                      hintText: 'Father Name',
+
                       controller: controller.fatherName,
-                      prefixIcon: Icons.person_outline, labelText: 'Father Name', obscureText: false,
+                      prefixIcon: Icons.person_outline,  obscureText: false,
                     ),
                     SizedBox(height: 2.h),
                     CustomTextField(
-                      hintText: 'Aadhar Number',
+
                       controller: controller.aadharNumber,
                       prefixIcon: Icons.credit_card,
-                      keyboardType: TextInputType.number, labelText: 'Aadhar Number', obscureText: false,
+                      keyboardType: TextInputType.number, obscureText: false,
                     ),
                     SizedBox(height: 2.h),
                     CustomTextField(
-                      hintText: 'Education',
+
                       controller: controller.education,
-                      prefixIcon: Icons.school, labelText: 'Education', obscureText: false,
+                      prefixIcon: Icons.school, obscureText: false,
                     ),
                     SizedBox(height: 2.h),
                     Obx(() => CustomDropdown(
@@ -179,35 +178,35 @@ class EditTeacherView extends GetView<EditTeacherController> {
                       )),*/
 
                     CustomTextField(
-                        hintText: 'Experience',
+
                         controller: controller.experience,
                         prefixIcon: Icons.work,
-                        labelText: 'Experience',
+
                         obscureText: false
                     ),
                     SizedBox(height: 2.h),
                     CustomTextField(
-                        hintText: 'Email Address',
+
                         controller: controller.emailAddress,
                         prefixIcon: Icons.email,
                         keyboardType: TextInputType.emailAddress,
-                        labelText: 'Email Address',
+
                         obscureText: false
                     ),
                     SizedBox(height: 2.h),
                     CustomTextField(
-                      hintText: 'Date of Birth',
+
                       controller: controller.dateOfBirth,
                       prefixIcon: Icons.cake,
                       suffixIcon: Icons.calendar_month,
-                      labelText: 'Date of Birth', obscureText: false,
+                      obscureText: false,
                       onSuffixTap: () => controller.selectDate(context, controller.dateOfBirth),
                     ),
                     SizedBox(height: 2.h),
                     CustomTextField(
-                      hintText: 'Home Address',
+
                       controller: controller.homeAddress,
-                      prefixIcon: Icons.home, labelText: 'Home Address', obscureText: false,
+                      prefixIcon: Icons.home, obscureText: false,
                     ),
                     SizedBox(height: 4.h),
                     PrimaryButton(

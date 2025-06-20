@@ -5,7 +5,6 @@ import 'package:sizer_pro/sizer.dart';
 
 class CustomTextField extends StatelessWidget {
   final TextEditingController controller;
-  final String labelText;
   final IconData? icon;
   final bool isPassword;
   final TextInputType keyboardType;
@@ -23,13 +22,13 @@ class CustomTextField extends StatelessWidget {
   CustomTextField({
     Key? key,
     required this.controller,
-    required this.labelText,
+
     this.icon,
     this.isPassword = false,
     this.keyboardType = TextInputType.text,
     this.validator,
     this.enabled = true,
-    required String hintText,
+
     required bool obscureText,
     this.isPasswordVisible,
     this.togglePasswordVisibility,
@@ -51,7 +50,6 @@ class CustomTextField extends StatelessWidget {
             decoration: InputDecoration(
               contentPadding: EdgeInsets.symmetric(vertical: 12, horizontal: 12),
 
-              labelText: labelText,
               prefixIcon: prefixIcon != null
                   ? Icon(prefixIcon, color: Colors.black54)
                   : null,
@@ -101,8 +99,7 @@ class CustomTextField extends StatelessWidget {
           validator: validator,
           decoration: InputDecoration(
             contentPadding: EdgeInsets.symmetric(vertical: 12, horizontal: 12),
-            labelText: labelText,
-            // hintText: hintText,
+
             prefixIcon:
             prefixIcon  != null
                     ? Icon(prefixIcon, color: Colors.black54)

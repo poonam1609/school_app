@@ -58,13 +58,13 @@ class CreateNewpasswordView extends GetView<CreateNewpasswordController> {
                        SizedBox(height:1.h),
                        CustomTextField(
                            prefixIcon: Icons.lock_outline,
-                           controller: createNewpasswordController.newPasswordController, labelText:"" , hintText: '', obscureText: false),
+                           controller: createNewpasswordController.newPasswordController, obscureText: false),
                        SizedBox(height: 2.h,),
                        CustomText(text: "Confirm Password",color: Colors.grey.shade600,fontSize:6.sp,fontWeight: FontWeight.bold,),
                        SizedBox(height:1.h),
                        CustomTextField(
                            prefixIcon: Icons.lock_outline,
-                           controller: createNewpasswordController.newPasswordController, labelText:"" , hintText: '', obscureText: false),
+                           controller: createNewpasswordController.newPasswordController,obscureText: false),
                        SizedBox(height: 4.h,),
                        PrimaryButton(text: 'Reset Password', onPressed: (){
                          Get.toNamed(Routes.PASSWORD_RESET_COMPLETE);

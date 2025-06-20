@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:get/get.dart';
+import 'package:school_app/HelperWidget/chartContainer.dart';
 import 'package:school_app/HelperWidget/subMenu_getPages.dart';
 import 'package:sizer_pro/sizer.dart';
 
@@ -42,12 +43,11 @@ class HomeView extends GetView<HomeController> {
                 Padding(
                   padding: EdgeInsets.only(right: 5.w),
                   child: SvgPicture.asset(
-                    'assets/image/homelogo_img.svg',
+                    'assets/image/home_logo.svg',
                     height: 4.h,
                   ),
                 ),
               ],
-
               leading: IconButton(
                 icon: Icon(Icons.menu, color: Colors.black),
                 onPressed: () {
@@ -71,7 +71,7 @@ class HomeView extends GetView<HomeController> {
                           SizedBox(height: 2.h),
                           Text(
                             "Good Morning!",
-                            style: TextStyle(color: Color(0xffA6A6A6)),
+                            style: TextStyle(color: Colors.grey.shade700),
                           ),
                           Text(
                             "David",

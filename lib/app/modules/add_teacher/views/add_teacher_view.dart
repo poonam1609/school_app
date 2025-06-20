@@ -17,244 +17,259 @@ class AddTeacherView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: Column(
-        children: [
-          SizedBox(height: 5.h,),
-          Container(
-            color: Colors.grey.shade200,
-            padding: EdgeInsets.all(2.h),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                CustomText(
-                  text: 'Teacher',
-                  fontWeight: FontWeight.bold,
-                  fontSize: 8.sp,
-                ),
-
-                CustomText(
-                  text: 'Add Teacher',
-                  fontWeight: FontWeight.bold,
-                  fontSize: 8.sp,
-                ),
-              ],
-            ),
-          ),
-          SizedBox(height: 2.h),
-          Expanded(
-            child: SingleChildScrollView(
-              padding: EdgeInsets.all(2.h),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Center(
-                    child: CustomText(
-                      text: 'Employee Form',
+      body: SafeArea(
+        child: SingleChildScrollView(
+          padding: EdgeInsets.all(3.h),
+          child:Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Center(
+                child: Column(
+                  children: [
+                    CustomText(
+                      text: 'New Employee Form',
                       fontWeight: FontWeight.bold,
-                      fontSize: 8.sp,
+                      fontSize: 6.5.sp,
                     ),
-                  ),
-                  SizedBox(height: 2.h),
-                  CustomText(
-                    text: '1. Basic Information',
-                    fontWeight: FontWeight.bold,
-                    fontSize: 8.sp,
-                  ),
-                  SizedBox(height: 2.h),
-                  CustomTextField(
-                    prefixIcon: Icons.person,
-                    controller: controller.employeeName,
-                    labelText: 'Name',
-                    hintText: 'Name',
-                    obscureText: false,
-                  ),
-                  SizedBox(height: 2.h),
-                  Obx(
-                        () => Container(
-                      width: double.infinity,
-                      height: 20.h,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.grey),
-                        borderRadius: BorderRadius.circular(8),
-                        color: Colors.grey[50],
-                      ),
-                      child:
-                      controller.profileImage.value != null
-                          ? ClipRRect(
-                        borderRadius: BorderRadius.circular(8),
-                        child: Image.file(
-                          controller.profileImage.value!,
-                          fit: BoxFit.cover,
-                        ),
-                      )
-                          : Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                    SizedBox(height: 3.h),
+
+                    Obx(
+                          () => Stack(
+                        alignment: Alignment.bottomRight,
                         children: [
-                          Icon(
-                            Icons.image,
-                            size: 40,
-                            color: Colors.grey[400],
+                          controller.profileImage.value != null
+                              ? CircleAvatar(
+                            radius: 40,
+                            backgroundImage:
+                            FileImage(controller.profileImage.value!),
+                          )
+                              : CircleAvatar(
+                            radius: 40,
+                            backgroundColor:
+                            const Color(0xFF1E88E5).withOpacity(0.2),
+                            child: const Icon(
+                              Icons.person,
+                              size: 50,
+                              color: Colors.white,
+                            ),
                           ),
-                          const SizedBox(height: 8),
-                          const Text(
-                            'No Image',
-                            style: TextStyle(color: Colors.grey),
-                          ),
-                          const SizedBox(height: 8),
-                          ElevatedButton.icon(
-                            onPressed: () => controller.pickImage(),
-                            icon: const Icon(Icons.upload),
-                            label: const Text('Upload Picture'),
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor:
-                              Theme.of(context).primaryColor,
-                              foregroundColor: Colors.white,
+                          Positioned(
+                            bottom: 0,
+                            right: 4,
+                            child: InkWell(
+                              onTap: () => controller.pickImage(),
+                              child: const CircleAvatar(
+                                radius: 10,
+                                backgroundColor: Colors.white,
+                                child: Icon(
+                                  Icons.add,
+                                  size: 18,
+                                  color: Colors.black,
+                                ),
+                              ),
                             ),
                           ),
                         ],
                       ),
                     ),
-                  ),
-                  SizedBox(height: 2.h),
-                  CustomTextField(
-                    prefixIcon: Icons.call,
-                    controller: controller.mobileNumber,
-                    labelText: 'Mobile Number',
-                    hintText: 'Mobile Number',
-                    obscureText: false,
-                  ),
-                  SizedBox(height: 2.h),
-                  CustomTextField(
-                    prefixIcon: Icons.calendar_today,
-                    suffixIcon: Icons.calendar_month,
-                    controller:  controller.dateOfJoin,
-                    onSuffixTap: () => controller.selectDate(context,  controller.dateOfJoin),
-                    labelText: 'Date of Join',
-                    hintText: 'Date of Join',
-                    obscureText: false,
-                  ),
-                  SizedBox(height: 2.h),
-                  Obx(
-                        () => CustomDropdown(
-                      value:  controller.selectedRole.value,
-                      items:  controller.roles,
-                      onChanged:
-                          (value) =>  controller.selectedRole.value = value ?? 'Select Role',
+
+                    SizedBox(height: 3.h),
+                    CustomText(
+                      text: 'Add a photo',
+                      fontSize: 6.sp,
+                      fontWeight: FontWeight.bold,
                     ),
-                  ),
-                  SizedBox(height: 2.h),
-                  CustomTextField(
-                    hintText: 'Monthly Salary',
-                    controller:  controller.monthlySalary,
-                    prefixIcon: Icons.attach_money,
-                    keyboardType: TextInputType.number,
-                    labelText: 'Monthly Salary',
-                    obscureText: false,
-                  ),
-                  SizedBox(height: 2.h),
-                  Text(
-                    '2. Other Information',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(height: 2.h),
-                  CustomTextField(
-                    hintText: 'Father Name',
-                    controller:  controller.fatherName,
-                    prefixIcon: Icons.person_outline,
-                    labelText: 'Father Name',
-                    obscureText: false,
-                  ),
-                  SizedBox(height: 2.h),
-                  CustomTextField(
-                    hintText: 'Aadhar Number',
-                    controller:  controller.aadharNumber,
-                    prefixIcon: Icons.credit_card,
-                    keyboardType: TextInputType.number,
-                    labelText: 'Aadhar Number',
-                    obscureText: false,
-                  ),
-                  SizedBox(height: 2.h),
-                  CustomTextField(
-                    hintText: 'Education',
-                    controller:  controller.education,
-                    prefixIcon: Icons.school,
-                    labelText: 'Education',
-                    obscureText: false,
-                  ),
-                  SizedBox(height: 2.h),
-                  Obx(
-                        () => CustomDropdown(
-                      value:  controller.selectedGender.value,
-                      items:  controller.genders,
-                      onChanged:
-                          (value) =>
-                      controller.selectedGender.value = value ?? 'Select Gender',
+                    SizedBox(height: 1.h),
+                    CustomText(
+                      textAlign: TextAlign.center,
+                      color: Colors.grey.shade500,
+                      text: 'Add a photo so other members\nknow who you are.',
+                      fontSize: 5.sp,
                     ),
-                  ),
-                  Obx(
-                        () => CustomDropdown(
-                      value:  controller.selectedBloodGroup.value,
-                      items:  controller.bloodGroups,
-                      onChanged:
-                          (value) =>
-                      controller.selectedBloodGroup.value =
-                          value ?? 'Select Blood Group',
-                    ),
-                  ),
-                  Obx(
-                        () => CustomDropdown(
-                      value:  controller.selectedReligion.value,
-                      items:  controller.religions,
-                      onChanged:
-                          (value) =>
-                      controller.selectedReligion.value = value ?? 'Select Religion',
-                    ),
-                  ),
-                  CustomTextField(
-                    hintText: 'Experience',
-                    controller:  controller.experience,
-                    prefixIcon: Icons.work,
-                    labelText: 'Experience',
-                    obscureText: false,
-                  ),
-                  SizedBox(height: 2.h),
-                  CustomTextField(
-                    hintText: 'Email Address',
-                    controller:  controller.emailAddress,
-                    prefixIcon: Icons.email,
-                    keyboardType: TextInputType.emailAddress,
-                    labelText: 'Email Address',
-                    obscureText: false,
-                  ),
-                  SizedBox(height: 2.h),
-                  CustomTextField(
-                    hintText: 'Date of Birth',
-                    controller:  controller.dateOfBirth,
-                    prefixIcon: Icons.cake,
-                    suffixIcon: Icons.calendar_month,
-                    labelText: 'Date of Birth',
-                    obscureText: false,
-                    onSuffixTap: () =>  controller.selectDate(context,  controller.dateOfBirth),
-                  ),
-                  SizedBox(height: 2.h),
-                  CustomTextField(
-                    hintText: 'Home Address',
-                    controller:  controller.homeAddress,
-                    prefixIcon: Icons.home,
-                    labelText: 'Home Address',
-                    obscureText: false,
-                  ),
-                  SizedBox(height: 4.h),
-                  PrimaryButton(
-                    text: 'Submit',
-                    onPressed: () =>controller.submitForm('submit'),
-                  ),
-                ],
+                    SizedBox(height: 3.h),
+                  ],
+                ),
               ),
-            ),
-          ),
-        ],
+              Align(
+                alignment: Alignment.centerLeft,
+                child: CustomText(
+                  text: 'User Information',
+                  fontWeight: FontWeight.bold,
+                  fontSize: 6.sp,
+                  textAlign: TextAlign.start,
+                ),
+              ),
+              SizedBox(height: 1.h),
+              Divider(color: Theme.of(context).primaryColor),
+              SizedBox(height: 1.h),
+              CustomText(text: 'Full Name',fontSize: 5.sp,fontWeight: FontWeight.bold,),
+              SizedBox(height: 1.h),
+              CustomTextField(
+                color: const Color(0xffCBD2E0),
+                prefixIcon: Icons.person,
+                controller: controller.employeeName,
+
+                obscureText: false,
+              ),
+              SizedBox(height: 3.h),
+              CustomText(text: 'Contact Number',fontSize: 5.sp,fontWeight: FontWeight.bold,),
+              SizedBox(height: 1.h),
+              CustomTextField(
+                prefixIcon: Icons.call,
+                controller: controller.mobileNumber,
+                obscureText: false,
+              ),
+              SizedBox(height: 3.h),
+              CustomText(text: 'Email',fontSize: 5.sp,fontWeight: FontWeight.bold,),
+              SizedBox(height: 1.h),
+              CustomTextField(
+                controller:  controller.emailAddress,
+                prefixIcon: Icons.email,
+                keyboardType: TextInputType.emailAddress,
+                obscureText: false,
+              ),
+              SizedBox(height: 3.h),
+              CustomText(text: 'Date Of Birth',fontSize: 5.sp,fontWeight: FontWeight.bold,),
+              SizedBox(height: 1.h),
+              CustomTextField(
+
+                controller:  controller.dateOfBirth,
+                prefixIcon: Icons.cake,
+                suffixIcon: Icons.calendar_month,
+                obscureText: false,
+                onSuffixTap: () =>  controller.selectDate(context,  controller.dateOfBirth),
+              ),
+              SizedBox(height: 3.h),
+              CustomText(text: 'Date of joining',fontSize: 5.sp,fontWeight: FontWeight.bold,),
+              SizedBox(height: 1.h),
+              CustomTextField(
+                prefixIcon: Icons.calendar_today,
+                suffixIcon: Icons.calendar_month,
+                controller: controller.dateOfJoin,
+                onSuffixTap: () => controller.selectDate(context, controller.dateOfJoin),
+
+                obscureText: false,
+              ),
+              SizedBox(height: 2.h),
+              CustomText(text: 'Position',fontSize: 5.sp,fontWeight: FontWeight.bold,),
+              SizedBox(height: 1.h),
+              Obx(() => CustomDropdown(
+                value: controller.selectedRole.value,
+                items: controller.roles,
+                onChanged: (value) =>
+                controller.selectedRole.value = value ?? 'Select Role',
+              )),
+
+              CustomText(text: 'Salary',fontSize: 5.sp,fontWeight: FontWeight.bold,),
+              SizedBox(height: 1.h),
+              CustomTextField(
+                controller: controller.monthlySalary,
+                prefixIcon: Icons.attach_money,
+                keyboardType: TextInputType.number,
+                obscureText: false,
+              ),
+              SizedBox(height: 3.h),
+              CustomText(text: 'Address',fontSize: 5.sp,fontWeight: FontWeight.bold,),
+              SizedBox(height: 1.h),
+              CustomTextField(
+                controller:  controller.homeAddress,
+                prefixIcon: Icons.home,
+                obscureText: false,
+              ),
+              SizedBox(height: 3.h),
+              CustomText(
+                text: 'Additional Information',
+                fontSize: 6.sp,
+                fontWeight: FontWeight.bold,
+              ),
+              SizedBox(height: 2.h),
+              Divider(color: Theme.of(context).primaryColor),
+              SizedBox(height: 2.h),
+              CustomText(text: 'Father Name',fontSize: 5.sp,fontWeight: FontWeight.bold,),
+              SizedBox(height: 1.h),
+              CustomTextField(
+
+                controller: controller.fatherName,
+                prefixIcon: Icons.person_outline,
+
+                obscureText: false,
+              ),
+              SizedBox(height: 3.h),
+              CustomText(text: 'Adhar Number',fontSize: 5.sp,fontWeight: FontWeight.bold,),
+              SizedBox(height: 1.h),
+              CustomTextField(
+                controller:  controller.aadharNumber,
+                prefixIcon: Icons.credit_card,
+                keyboardType: TextInputType.number,
+
+                obscureText: false,
+              ),
+              SizedBox(height: 3.h),
+              CustomText(text: 'Education',fontSize: 5.sp,fontWeight: FontWeight.bold,),
+              SizedBox(height: 1.h),
+              CustomTextField(
+
+                controller:  controller.education,
+                prefixIcon: Icons.school,
+
+                obscureText: false,
+              ),
+              SizedBox(height: 3.h),
+              CustomText(text: 'Experience',fontSize: 5.sp,fontWeight: FontWeight.bold,),
+              SizedBox(height: 1.h),
+              CustomTextField(
+                controller:  controller.experience,
+                prefixIcon: Icons.work,
+                obscureText: false,
+              ),
+              SizedBox(height: 3.h),
+              CustomText(text: 'Gender',fontSize: 5.sp,fontWeight: FontWeight.bold,),
+              SizedBox(height: 1.h),
+              Obx(
+                    () => CustomDropdown(
+                  value:  controller.selectedGender.value,
+                  items:  controller.genders,
+                  onChanged:
+                      (value) =>
+                  controller.selectedGender.value = value ?? 'Select Gender',
+                ),
+              ),
+
+              CustomText(text: 'Blood Group',fontSize: 5.sp,fontWeight: FontWeight.bold,),
+              SizedBox(height: 1.h),
+              Obx(
+                    () => CustomDropdown(
+                  value:  controller.selectedBloodGroup.value,
+                  items:  controller.bloodGroups,
+                  onChanged:
+                      (value) =>
+                  controller.selectedBloodGroup.value =
+                      value ?? 'Select Blood Group',
+                ),
+              ),
+
+              CustomText(text: 'Religion',fontSize: 5.sp,fontWeight: FontWeight.bold,),
+              SizedBox(height: 1.h),
+              Obx(
+                    () => CustomDropdown(
+                  value:  controller.selectedReligion.value,
+                  items:  controller.religions,
+                  onChanged:
+                      (value) =>
+                  controller.selectedReligion.value = value ?? 'Select Religion',
+                ),
+              ),
+              SizedBox(height: 4.h),
+              PrimaryButton(
+                color: Theme.of(context).primaryColor,
+                text: 'Submit',
+                onPressed: () => controller.submitForm('submit'),
+              ),
+            ],
+          )
+
+
+        ),
       ),
     );
   }
