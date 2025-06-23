@@ -119,7 +119,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.STUDENT_ID_CARD,
-      page: () => const StudentIdCardView(),
+      page: () =>  StudentIdCardView(),
       binding: StudentIdCardBinding(),
     ),
     GetPage(

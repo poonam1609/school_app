@@ -8,13 +8,13 @@ import 'package:printing/printing.dart';
 class OfferLetterController extends GetxController {
   final RxList<Employee> employees = <Employee>[].obs;
   final RxBool isLoading = false.obs;
+  final RxBool isFemale = true.obs;
 
   @override
   void onInit() {
     super.onInit();
     loadEmployees();
   }
-
   void loadEmployees() {
     // Static data - replace with API call for dynamic
     employees.value = [
@@ -25,7 +25,8 @@ class OfferLetterController extends GetxController {
         username: 'john.doe',
         password: '••••••••',
         accountStatus: 'Active',
-        profilePicture: 'assets/image/splash_img.svg',
+        profilePicture: 'assets/image/offer_image.jpg',
+        isFemale: false,
       ),
       Employee(
         name: 'Jane Smith',
@@ -34,7 +35,8 @@ class OfferLetterController extends GetxController {
         username: 'jane.smith',
         password: '••••••••',
         accountStatus: 'Active',
-        profilePicture: 'assets/image/splash_img.svg',
+        profilePicture: 'assets/image/offer_image.jpg',
+        isFemale: false,
       ),
       Employee(
         name: 'Mike Johnson',
@@ -43,7 +45,8 @@ class OfferLetterController extends GetxController {
         username: 'mike.johnson',
         password: '••••••••',
         accountStatus: 'Inactive',
-        profilePicture: 'assets/image/splash_img.svg',
+        profilePicture: 'assets/image/offer_image.jpg',
+        isFemale: false,
       ),
       Employee(
         name: 'Sarah Wilson',
@@ -52,7 +55,8 @@ class OfferLetterController extends GetxController {
         username: 'sarah.wilson',
         password: '••••••••',
         accountStatus: 'Active',
-        profilePicture: 'assets/image/splash_img.svg',
+        profilePicture: 'assets/image/offer_image.jpg',
+        isFemale:true,
       ),
       Employee(
         name: 'David Brown',
@@ -61,7 +65,8 @@ class OfferLetterController extends GetxController {
         username: 'david.brown',
         password: '••••••••',
         accountStatus: 'Active',
-        profilePicture: 'assets/image/splash_img.svg',
+        profilePicture: 'assets/image/offer_image.jpg',
+        isFemale: false,
       ),
     ];
   }
@@ -136,8 +141,10 @@ class Employee {
   final String password;
   final String accountStatus;
   final String profilePicture;
+  final bool isFemale;
 
-  Employee({
+  Employee(
+      {
     required this.name,
     required this.employeeId,
     required this.dateOfJoining,
@@ -145,6 +152,8 @@ class Employee {
     required this.password,
     required this.accountStatus,
     required this.profilePicture,
+        required this.isFemale,
+
   });
 
   factory Employee.fromJson(Map<String, dynamic> json) => Employee(
@@ -155,5 +164,9 @@ class Employee {
     password: json['password'] ?? '',
     accountStatus: json['account_status'] ?? '',
     profilePicture: json['profile_picture'] ?? '',
+    isFemale: json['is_female'] ?? false,
+
   );
+
+
 }

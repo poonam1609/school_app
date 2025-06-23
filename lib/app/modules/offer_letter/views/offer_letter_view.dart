@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import 'package:get/get.dart';
+import 'package:school_app/HelperWidget/customText.dart';
 import 'package:sizer_pro/sizer.dart';
 
 import '../controllers/offer_letter_controller.dart';
@@ -11,7 +12,6 @@ class OfferLetterView extends GetView<OfferLetterController> {
     OfferLetterController(),
   );
   OfferLetterView({super.key});
-
   @override
   Widget build(BuildContext context) {
     return GetBuilder(
@@ -21,202 +21,128 @@ class OfferLetterView extends GetView<OfferLetterController> {
           body: SafeArea(
             child: Column(
               children: [
-                Container(
-                  color: Colors.grey.shade200,
-                  padding: EdgeInsets.all(2.h),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Employee',
-                        style: TextStyle(
-                          fontSize: 7.sp,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Text(
-                        'Offer Letter',
-                        style: TextStyle(
-                          fontSize: 7.sp,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
-                  ),
+                SizedBox(height: 2.h),
+                CustomText(
+                  text: 'Offer Letter',
+                  fontWeight: FontWeight.bold,
+                  fontSize: 9.sp,
                 ),
                 SizedBox(height: 1.h),
-                TextField(
-                  onChanged: (value) {
-                    // controller.searchQuery.value = value;
-                  },
-                  decoration: InputDecoration(
-                    hintText: 'Search employees...',
-                    prefixIcon: const Icon(Icons.search),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.grey),
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.grey, width: 2),
-                      borderRadius: BorderRadius.circular(8),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 4.w),
+                  child: TextField(
+                    onChanged: (value) {
+                      // controller.searchQuery.value = value;
+                    },
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Colors.white,
+                      contentPadding: EdgeInsets.symmetric(vertical: 1.h),
+                      // hintText: 'Search employees...',
+                      prefixIcon: const Icon(Icons.search),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.grey, width: 2),
+                        borderRadius: BorderRadius.circular(8),
+                      ),
                     ),
                   ),
                 ),
                 SizedBox(height: 2.h),
                 Expanded(
                   child: Obx(() {
-                      return ListView.builder(
-                        itemCount: offerLetterController.employees.length,
-                        itemBuilder: (context, index) {
-                          final employee = offerLetterController.employees[index];
-                          return Container(
-                            margin: EdgeInsets.symmetric(
-                              horizontal: 4.w,
-                              vertical: 1.h,
+                    return ListView.builder(
+                      itemCount: offerLetterController.employees.length,
+                      itemBuilder: (context, index) {
+                        final employee = offerLetterController.employees[index];
+                        return Container(
+                          margin: EdgeInsets.symmetric(horizontal: 4.w, vertical: 1.h),
+                          padding: EdgeInsets.all(2.h),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(2.h),
+                   /*         boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.2),
+                                spreadRadius: 1,
+                                blurRadius: 3,
+                                offset: Offset(0, 2),
+                              ),
+                            ],*/
+                            border: Border.all(
+                              color: employee.isFemale
+                                  ? Color(0xffC838BA).withOpacity(0.7)
+                                  : Color(0xff1E88E5).withOpacity(0.5),
+                              width: 1.6,
                             ),
-                            padding: EdgeInsets.all(3.w),
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(2.h),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.grey.withOpacity(0.1),
-                                  spreadRadius: 1,
-                                  blurRadius: 5,
-                                  offset: Offset(0, 2),
-                                ),
-                              ],
-                            ),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    SizedBox(width:3.w),
-                                    Container(
-                                      width: 30.w,
-                                      height: 30.w,
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        color: Colors.grey[300],
-                                      ),
-                                      child: ClipOval(
+                          ),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Column(
+                                children: [
+                          ClipOval(
+                          child: Image.asset(
+                            employee.profilePicture,
+                            width: 80,    // same as CircleAvatar diameter
+                            height: 80,
+                            fit: BoxFit.cover, // Ensures the image fills the circle
+                          ),
+                          ),
 
-                                        child: SvgPicture.asset(
-                                          height: 15.h,
-                                          employee.profilePicture, // should be .svg path
-                                          fit: BoxFit.cover,
-                                        ),
+                          /// Icons below profile (no extra space)
+                                  Row(
+                                    children: [
+                                      IconButton(
+                                        onPressed: () {
+                                          // View profile action
+                                        },
+                                        icon: Icon(Icons.person_outline),
+                                        color: Colors.black,
+                                        iconSize: 9.sp,
+                                        padding: EdgeInsets.zero,
+                                        constraints: BoxConstraints(), // removes default constraints
                                       ),
-                                    ),
-                                       InkWell(
-                            onTap:
-                                () => offerLetterController
-                                .printOfferLetter(employee),
-                            borderRadius: BorderRadius.circular(8),
-                            child: Container(
-                              padding: EdgeInsets.all(2.w),
-                              decoration: BoxDecoration(
-                                color: Colors.blue.withOpacity(0.1),
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                              child: Icon(
-                                Icons.print,
-                                color: Colors.blue[700],
-                                size: 5.w,
-                              ),
-                            ),
-                                       ),
-                                  ],
-                                ),
-                                Text(
-                                  employee.name,
-                                  style: TextStyle(
-                                    fontSize: 7.sp,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black87,
+                                      IconButton(
+                                        onPressed: () => offerLetterController.printOfferLetter(employee),
+                                        icon: Icon(Icons.print_outlined),
+                                        color: Colors.black,
+                                        iconSize: 9.sp,
+                                        padding: EdgeInsets.zero,
+                                        constraints: BoxConstraints(),
+                                      ),
+                                    ],
                                   ),
-                                ),
-                                SizedBox(height: 0.5.h),
-                                _buildDetailRow(
-                                  'Employee ID',
-                                  employee.employeeId,
-                                ),
-                                _buildDetailRow(
-                                  'Join Date',
-                                  employee.dateOfJoining,
-                                ),
-                                _buildDetailRow(
-                                  'Username',
-                                  employee.username,
-                                ),
-                                _buildDetailRow(
-                                  'Password',
-                                  employee.password,
-                                ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
+                                ],
+                              ),
+                              SizedBox(width: 4.w),
+
+                              /// RIGHT SIDE: Text details
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      'Status: ',
-                                      style: TextStyle(
-                                        fontSize: 6.sp,
-                                        color: Colors.grey[600],
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                      employee.name,
+                                      style: TextStyle(fontSize: 8.sp, ),
                                     ),
-                                    Container(
-                                      padding: EdgeInsets.symmetric(
-                                        horizontal: 3.w,
-
-                                      ),
-                                      decoration: BoxDecoration(
-                                        color:
-                                        employee.accountStatus ==
-                                            'Active'
-                                            ? Colors.green.withOpacity(
-                                          0.1,
-                                        )
-                                            : Colors.red.withOpacity(
-                                          0.1,
-                                        ),
-                                        borderRadius: BorderRadius.circular(
-                                          12,
-                                        ),
-                                        border: Border.all(
-                                          color:
-                                          employee.accountStatus ==
-                                              'Active'
-                                              ? Colors.green
-                                              : Colors.red,
-                                          width: 1,
-                                        ),
-                                      ),
-                                      child: Text(
-                                        employee.accountStatus,
-                                        style: TextStyle(
-                                          fontSize: 7.sp,
-                                          color:
-                                          employee.accountStatus ==
-                                              'Active'
-                                              ? Colors.green[700]
-                                              : Colors.red[700],
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                      ),
-                                    ),
+                                    SizedBox(height: 0.5.h),
+                                  CustomText(text: "Employee ID :${employee.employeeId}",color: Colors.grey, fontSize: 5.sp,),
+                                    CustomText(text: "Date of Joining :${employee.dateOfJoining}",color: Colors.grey, fontSize: 5.sp ),
+                                    CustomText(text: "Username :${employee.username}",color: Colors.grey, fontSize: 5.sp ),
+                                    CustomText(text: "Password :${employee.password}",color: Colors.grey, fontSize: 5.sp ),
                                   ],
                                 ),
+                              ),
+                            ],
+                          ),
+                        );
 
-                              ],
-                            ),
-
-                            // Print Icon
-
-                          );
-                        },
-                      );
+                      },
+                    );
                   }),
                 ),
               ],
@@ -226,28 +152,4 @@ class OfferLetterView extends GetView<OfferLetterController> {
       },
     );
   }
-}
-
-Widget _buildDetailRow(String label, String value) {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: [
-      Text(
-        '$label: ',
-        style: TextStyle(
-          fontSize: 6.sp,
-          color: Colors.grey[600],
-          fontWeight: FontWeight.w500,
-        ),
-      ),
-      Text(
-        value,
-        style: TextStyle(
-          fontSize: 6.sp,
-          color: Colors.black87,
-          fontWeight: FontWeight.w400,
-        ),
-      ),
-    ],
-  );
 }

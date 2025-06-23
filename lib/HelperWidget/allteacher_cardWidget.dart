@@ -34,14 +34,10 @@ class EmployeeCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.all(2.w),
-      padding: EdgeInsets.symmetric(vertical: 1.h, horizontal: 1.w),
+      padding: EdgeInsets.symmetric(vertical: 1.h, horizontal: 0.6.w),
       decoration: BoxDecoration(
         color:
-            gender.toLowerCase() == 'male'
-                ? Colors.blue.shade50
-                : gender.toLowerCase() == 'female'
-                ? Colors.pink.shade50
-                : Colors.grey.shade100,
+         Colors.white,
         border: Border.all(
           color:
               gender.toLowerCase() == 'male'
@@ -207,7 +203,7 @@ class EmployeeCard extends StatelessWidget {
                 name,
                 style:  TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 8.sp,
+                  fontSize: 6.sp,
                 ),
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
@@ -217,7 +213,7 @@ class EmployeeCard extends StatelessWidget {
               // Role
               Text(
                 role,
-                style: TextStyle(color: Colors.grey[600], fontSize: 6.sp),
+                style: TextStyle(color: Colors.grey[600], fontSize: 5.sp),
               ),
 
               // Gender
@@ -227,24 +223,4 @@ class EmployeeCard extends StatelessWidget {
       ),
     );
   }
-
-  /*
-  Widget _buildInfoRow(String label, String value) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 4),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(
-            width: 80,
-            child: Text(
-              '$label:',
-              style: const TextStyle(fontWeight: FontWeight.bold),
-            ),
-          ),
-          Expanded(child: Text(value)),
-        ],
-      ),
-    );
-  }*/
 }

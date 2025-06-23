@@ -4,6 +4,8 @@ import 'package:school_app/HelperWidget/customText.dart';
 import 'package:sizer_pro/sizer.dart';
 
 class AllItemView extends StatelessWidget {
+  final bool useGrid;
+
   final String title;
   final String searchHint;
   final Function(String)? onSearch;
@@ -14,7 +16,7 @@ class AllItemView extends StatelessWidget {
   const AllItemView({
     super.key,
     required this.title,
-
+    this.useGrid = true,
     required this.searchHint,
     required this.items,
     required this.itemBuilder,
@@ -72,22 +74,28 @@ class AllItemView extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 2.h),
-              Obx(()=>
-                 Expanded(
-                  child: GridView.builder(
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      crossAxisSpacing: 1,
-                      mainAxisSpacing: 6,
-                      childAspectRatio: 0.9,
-                    ),
-                    itemCount: items.length,
-                    itemBuilder: (context, index) =>
-                        itemBuilder(items[index], index),
+              SizedBox(height: 4.h),
+          Obx(() =>
+              Expanded(
+                child: useGrid
+                    ? GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 1,
+                    mainAxisSpacing: 6,
+                    childAspectRatio: 0.9,
                   ),
+                  itemCount: items.length,
+                  itemBuilder: (context, index) => itemBuilder(items[index], index),
+                )
+                    : ListView.builder(
+                  itemCount: items.length,
+                  itemBuilder: (context, index) => itemBuilder(items[index], index),
                 ),
               ),
+          ),
+
+
             ],
           ),
         ),

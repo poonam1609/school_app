@@ -4,13 +4,14 @@ class PromoteStudentController extends GetxController {
   RxString standard_class = 'Select Class'.obs;
   RxString promoted_class = 'Select Class'.obs;
   RxBool showPromoteSection = true.obs;
+
   var isSelected = false.obs;
   List<String> std_class = ['Select Class','Class 1', 'Class 2', 'Class 3'];
   RxList<Student> students = <Student>[].obs;
 
   final Map<String, List<Student>> studentData = {
-    'Class 1': [Student(name: 'Surbhi Kapoor'), Student(name: 'Raj Mehra')],
-    'Class 2': [Student(name: 'Anita Sharma')],
+    'Class 1': [Student(name: 'Surbhi Kapoor',isFemale: true,image:"assets/image/student_img.jpg"), Student(name: 'Raj Mehra',isFemale:false,image:"assets/image/student_image.jpg")],
+    'Class 2': [Student(name: 'Anita Sharma',isFemale: true,image:"assets/image/student_img.jpg")],
     'Class 3': []
   };
 
@@ -40,7 +41,7 @@ class PromoteStudentController extends GetxController {
     if (promoted_class.value == 'Select Class') return;
     List<Student> selectedStudents = students.where((s) => s.isSelected.value).toList();
     studentData[standard_class.value]!.removeWhere((s) => s.isSelected.value);
-    studentData[promoted_class.value]!.addAll(selectedStudents.map((s) => Student(name: s.name)));
+    studentData[promoted_class.value]!.addAll(selectedStudents.map((s) => Student(name: s.name,isFemale: s.isFemale, image: s.image,)));
     fetchStudents();
     Get.snackbar("Success", "Students promoted successfully");
     students.clear();
@@ -65,7 +66,9 @@ class PromoteStudentController extends GetxController {
 }
 
 class Student {
+final String image;
   final String name;
+  final bool isFemale;
   RxBool isSelected = false.obs;
-  Student({required this.name});
+  Student({required this.name,required this.isFemale,required this.image});
 }

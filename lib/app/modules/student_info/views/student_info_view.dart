@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
+import 'package:school_app/HelperWidget/customText.dart';
 import 'package:sizer_pro/sizer.dart';
 
 import '../../../../HelperWidget/customButton.dart';
@@ -28,38 +29,20 @@ class StudentInfoView extends GetView<StudentInfoController> {
         body: SingleChildScrollView(
           child: SafeArea(child: Column(
             children: [
-              Container(
-                color: Colors.grey.shade200,
-                padding: EdgeInsets.all(2.h),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Student',
-                      style: TextStyle(
-                        fontSize: 7.sp,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Text('Student Info',style: TextStyle(
-                      fontSize:7.sp,
-                      fontWeight: FontWeight.bold,
-                    ),),
-                  ],
-                ),
-              ),
+              SizedBox(height: 2.h,),
+             CustomText(text: "Student Information",fontWeight: FontWeight.bold,fontSize: 9.sp),
               SizedBox(height: 2.h,),
               Container(
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  border: Border.all(color: Colors.white, width: 4),
-                  boxShadow: [
+                  border: Border.all(color: Colors.transparent, width: 4),
+               /*   boxShadow: [
                     BoxShadow(
                       color: Colors.black.withOpacity(0.4),
                       blurRadius: 10,
                       offset: const Offset(0, 5),
                     ),
-                  ],
+                  ],*/
                 ),
                 child: Obx(() {
                   if (controller.profileImage.value != null) {
@@ -81,12 +64,12 @@ class StudentInfoView extends GetView<StudentInfoController> {
               Text(
                 controller.studentName.value,
                 style: TextStyle(
-                  fontSize: 10.sp,
+                  fontSize: 7.sp,
                   fontWeight: FontWeight.bold,
                   color: Colors.black,
                 ),
               ),
-              SizedBox(height:2.h),
+    /*          SizedBox(height:2.h),
 
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 2.h, vertical: 0.5.h),
@@ -104,16 +87,17 @@ class StudentInfoView extends GetView<StudentInfoController> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-              ),
-              SizedBox(height: 3.h),
+              ),*/
+
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Column(
                   children: [
+
                     // Professional Information
                     _buildInfoCard(context,'Professional Information', [
                       _buildInfoItem(context,Icons.class_outlined, 'class_standard', controller.class_standard.value),
-                      _buildInfoItem(context,Icons.work, 'registration_id', controller.registrationId.value),
+                      _buildInfoItem(context,Icons.work_outline_sharp, 'registration_id', controller.registrationId.value),
                       _buildInfoItem(context,Icons.schedule, 'Experience', controller.experience.value),
                       _buildInfoItem(context,Icons.date_range, 'Date of Joining', _formatDate(controller.dateOfAdmission.value)),
                       _buildInfoItem(context,Icons.circle, 'Status', controller.status.value),
@@ -121,39 +105,39 @@ class StudentInfoView extends GetView<StudentInfoController> {
                     const SizedBox(height: 16),
                     // Contact Information
                     _buildInfoCard(context,'Contact Information', [
-                      _buildInfoItem(context,Icons.phone, 'Mobile', controller.mobileNumber.value),
-                      _buildInfoItem(context,Icons.email, 'Email', controller.emailAddress.value),
-                      _buildInfoItem(context,Icons.home, 'Address', controller.address.value),
+                      _buildInfoItem(context,Icons.phone_outlined, 'Mobile', controller.mobileNumber.value),
+                      _buildInfoItem(context,Icons.email_outlined, 'Email', controller.emailAddress.value),
+                      _buildInfoItem(context,Icons.home_outlined, 'Address', controller.address.value),
                     ]),
                     const SizedBox(height: 16),
 
                     // Personal Information
                     _buildInfoCard(context,'Personal Information', [
-                      _buildInfoItem(context,Icons.cake, 'Date of Birth', _formatDate(controller.dateOfBirth.value)),
+                      _buildInfoItem(context,Icons.cake_outlined, 'Date of Birth', _formatDate(controller.dateOfBirth.value)),
                       _buildInfoItem(context,Icons.person_outline, 'Gender', controller.gender.value),
-                      _buildInfoItem(context,Icons.bloodtype, 'Blood Group', controller.bloodGroup.value),
-                      _buildInfoItem(context,Icons.account_balance, 'Religion', controller.religion.value),
-                      _buildInfoItem(context,Icons.family_restroom, 'Father Name', controller.fatherName.value),
+                      _buildInfoItem(context,Icons.bloodtype_outlined, 'Blood Group', controller.bloodGroup.value),
+                      _buildInfoItem(context,Icons.account_balance_outlined, 'Religion', controller.religion.value),
+                      _buildInfoItem(context,Icons.family_restroom_outlined, 'Father Name', controller.fatherName.value),
                     ]),
                     const SizedBox(height: 16),
 
                     // Education & Documents
                     _buildInfoCard(context,'Education & Documents', [
-                      _buildInfoItem(context,Icons.school, 'Education', controller.education.value),
-                      _buildInfoItem(context,Icons.credit_card, 'Aadhar Number', _maskAadhar(controller.adhar.value)),
+                      _buildInfoItem(context,Icons.school_outlined, 'Education', controller.education.value),
+                      _buildInfoItem(context,Icons.credit_card_outlined, 'Aadhar Number', _maskAadhar(controller.adhar.value)),
                     ]),
                     const SizedBox(height: 16),
 
                     // Account Information
                     _buildInfoCard(context,'Account Information', [
-                      _buildInfoItem(context,Icons.person, 'Username', controller.username.value),
-                      _buildInfoItem(context,Icons.lock, 'Password', controller.password.value),
+                      _buildInfoItem(context,Icons.person_outlined, 'Username', controller.username.value),
+                      _buildInfoItem(context,Icons.lock_outlined, 'Password', controller.password.value),
                     ]),
                     const SizedBox(height: 16),
 
                     // Salary Information
                     _buildInfoCard(context,'Salary Information', [
-                      _buildInfoItem(context,Icons.attach_money, 'Monthly Salary', "₹${controller.monthlySalary.value}"),
+                      _buildInfoItem(context,Icons.attach_money_outlined, 'Monthly Salary', "₹${controller.monthlySalary.value}"),
                     ]),
                     const SizedBox(height: 30),
 
@@ -162,6 +146,7 @@ class StudentInfoView extends GetView<StudentInfoController> {
                       width: double.infinity,
                       height: 50,
                       child: PrimaryButton(
+                        color: Theme.of(context).primaryColor,
                         text: 'Print',
                         onPressed: _generateAndPrintPDF,
                       ),
@@ -192,7 +177,8 @@ class StudentInfoView extends GetView<StudentInfoController> {
                 color: Theme.of(context).primaryColor,
               ),
             ),
-            const SizedBox(height: 16),
+            Divider(color: Theme.of(context).primaryColor,),
+            const SizedBox(height: 10),
             ...children,
           ],
         ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:sizer_pro/sizer.dart';
 
 import '../../../../HelperWidget/all_studentCard.dart';
 import '../../../../HelperWidget/custom_AllPersonView.dart';
@@ -14,7 +15,6 @@ class AllStudentView extends GetView<AllStudentController> {
   Widget build(BuildContext context) {
     return AllItemView(
       title: 'All Students',
-
       searchHint: 'Search Student...',
       onSearch: (value) {
         // Optionally handle search
@@ -24,8 +24,10 @@ class AllStudentView extends GetView<AllStudentController> {
         final controller = Get.find<HomeController>();
         controller.selectMenu(202); // Navigate to Add Employee
       },
+
       items: allStudentController.student,
       itemBuilder: (student, index) {
+
         return StudentCard(
           name: student['name'] ?? '',
           class_standard:student['class_standard'],
@@ -38,6 +40,7 @@ class AllStudentView extends GetView<AllStudentController> {
           onDelete: () => allStudentController.deleteStudent(index),
         );
       },
+      useGrid: false,
     );
   }
 }
