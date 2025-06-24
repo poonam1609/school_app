@@ -101,14 +101,14 @@ class EditStudentController extends GetxController {
 
 
     if (data != null) {
-       studentName.text= data['student_Name'] ?? '';
-     mobileNumber.text= data['mobile_Number'] ?? '';
+       studentName.text= data['name'] ?? '';
+     mobileNumber.text= data['mobile'] ?? '';
        fatherName.text= data['father_Name'] ?? '';
       aadharNumber.text = data['aadhar_Number'] ?? '';
        education.text = data['education'] ?? '';
        dateOfBirth.text= data['dateOf_Birth'] ?? '';
       homeAddress.text= data['home_Address'] ?? '';
-      registration.text = data['registration'] ?? '';
+      registration.text = data['registration_id'] ?? '';
       dateofadmission.text= data['dateof_admission'] ?? '';
        discountFee.text= data['discount_Fee'] ?? '';
       idMark.text= data['idMark'] ?? '';
@@ -131,6 +131,8 @@ class EditStudentController extends GetxController {
        previousSchool.text= data['previous_School'] ?? '';
        totalSibling .text= data['total_Sibling'] ?? '';
        motherNationalID.text= data['motherNational_ID'] ?? '';
+       standard_class.value = data['class_standard']??'Select class';
+       selectedGender.value = data['gender']?? "Select gender";
 
     }
   }

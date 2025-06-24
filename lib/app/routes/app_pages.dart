@@ -4,6 +4,8 @@ import '../modules/add_student/bindings/add_student_binding.dart';
 import '../modules/add_student/views/add_student_view.dart';
 import '../modules/add_teacher/bindings/add_teacher_binding.dart';
 import '../modules/add_teacher/views/add_teacher_view.dart';
+import '../modules/all_classes/bindings/all_classes_binding.dart';
+import '../modules/all_classes/views/all_classes_view.dart';
 import '../modules/all_student/bindings/all_student_binding.dart';
 import '../modules/all_student/views/all_student_view.dart';
 import '../modules/all_teacher/bindings/all_teacher_binding.dart';
@@ -22,6 +24,8 @@ import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
+import '../modules/new_classes/bindings/new_classes_binding.dart';
+import '../modules/new_classes/views/new_classes_view.dart';
 import '../modules/offer_letter/bindings/offer_letter_binding.dart';
 import '../modules/offer_letter/views/offer_letter_view.dart';
 import '../modules/onboarding/bindings/onboarding_binding.dart';
@@ -119,7 +123,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.STUDENT_ID_CARD,
-      page: () =>  StudentIdCardView(),
+      page: () => StudentIdCardView(),
       binding: StudentIdCardBinding(),
     ),
     GetPage(
@@ -139,8 +143,18 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.PASSWORD_RESET_COMPLETE,
-      page: () =>  PasswordResetCompleteView(),
+      page: () => PasswordResetCompleteView(),
       binding: PasswordResetCompleteBinding(),
+    ),
+    GetPage(
+      name: _Paths.ALL_CLASSES,
+      page: () =>  AllClassesView(),
+      binding: AllClassesBinding(),
+    ),
+    GetPage(
+      name: _Paths.NEW_CLASSES,
+      page: () =>  NewClassesView(),
+      binding: NewClassesBinding(),
     ),
   ];
 }

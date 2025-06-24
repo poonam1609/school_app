@@ -84,6 +84,7 @@ flutter:
       fonts:
         - asset: assets/fonts/Inter/static/Inter_18pt-Light.ttf
         - asset: assets/fonts/Inter/static/Inter_18pt-SemiBold.ttf
+
           weight: 600
           style: italic
 

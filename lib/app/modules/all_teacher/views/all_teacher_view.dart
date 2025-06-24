@@ -15,7 +15,6 @@ class AllTeacherView extends GetView<AllTeacherController> {
   Widget build(BuildContext context) {
     return AllItemView(
       title: 'All Employees',
-
       searchHint: 'Search employees...',
       onSearch: (value) {
         // Optionally handle search

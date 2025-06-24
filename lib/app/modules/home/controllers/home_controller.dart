@@ -22,7 +22,6 @@ class HomeController extends GetxController with GetTickerProviderStateMixin {
   final RxBool isDrawerOpen = false.obs;
   var previousNavIndex = 0.obs;
 
-
   // Dashboard Metrics
   final RxInt totalStudents = 1245.obs;
   final RxDouble totalRevenue = 125000.0.obs;

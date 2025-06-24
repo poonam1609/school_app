@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import 'package:get/get.dart';
+import 'package:school_app/HelperWidget/customSearch.dart';
 import 'package:school_app/HelperWidget/customText.dart';
 import 'package:sizer_pro/sizer.dart';
 
@@ -28,29 +29,12 @@ class OfferLetterView extends GetView<OfferLetterController> {
                   fontSize: 9.sp,
                 ),
                 SizedBox(height: 1.h),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 4.w),
-                  child: TextField(
-                    onChanged: (value) {
-                      // controller.searchQuery.value = value;
-                    },
-                    decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Colors.white,
-                      contentPadding: EdgeInsets.symmetric(vertical: 1.h),
-                      // hintText: 'Search employees...',
-                      prefixIcon: const Icon(Icons.search),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey, width: 2),
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                    ),
-                  ),
-                ),
+               Padding(
+                 padding: EdgeInsets.symmetric(horizontal: 4.w),
+                 child: CustomSearchInput(onChanged: (value) {
+
+                 },),
+               ),
                 SizedBox(height: 2.h),
                 Expanded(
                   child: Obx(() {

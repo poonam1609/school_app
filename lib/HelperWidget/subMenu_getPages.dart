@@ -1,11 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:school_app/app/modules/add_student/views/add_student_view.dart';
 import 'package:school_app/app/modules/add_teacher/views/add_teacher_view.dart';
+import 'package:school_app/app/modules/all_classes/views/all_classes_view.dart';
 import 'package:school_app/app/modules/all_student/views/all_student_view.dart';
 import 'package:school_app/app/modules/all_teacher/views/all_teacher_view.dart';
 import 'package:school_app/app/modules/edit_student/views/edit_student_view.dart';
 import 'package:school_app/app/modules/edit_teacher/views/edit_teacher_view.dart';
 import 'package:school_app/app/modules/home/views/home_view.dart';
+import 'package:school_app/app/modules/new_classes/views/new_classes_view.dart';
 import 'package:school_app/app/modules/offer_letter/views/offer_letter_view.dart';
 import 'package:school_app/app/modules/promote_student/views/promote_student_view.dart';
 import 'package:school_app/app/modules/student_idCard/views/student_id_card_view.dart';
@@ -25,7 +27,8 @@ final Map<int, Widget> pageMap = {
   204:StudentIdCardView(),
   205: EditStudentView(),
   206:StudentInfoView(),
-
+  301:AllClassesView(),
+  302:NewClassesView()
 
 
 

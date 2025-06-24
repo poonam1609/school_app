@@ -34,7 +34,6 @@ class AddStudentView extends GetView<AddStudentController> {
                             fontSize: 6.5.sp,
                           ),
                           SizedBox(height: 3.h),
-
                           Obx(
                             () => Stack(
                               alignment: Alignment.bottomRight,
@@ -76,7 +75,6 @@ class AddStudentView extends GetView<AddStudentController> {
                               ],
                             ),
                           ),
-
                           SizedBox(height: 3.h),
                           CustomText(
                             text: 'Add a photo',
@@ -87,8 +85,7 @@ class AddStudentView extends GetView<AddStudentController> {
                           CustomText(
                             textAlign: TextAlign.center,
                             color: Colors.grey.shade500,
-                            text:
-                                'Add a photo so other members\nknow who you are.',
+                            text: 'Add a photo so other members\nknow who you are.',
                             fontSize: 5.sp,
                           ),
                           SizedBox(height: 3.h),

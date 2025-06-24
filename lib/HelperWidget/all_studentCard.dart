@@ -16,8 +16,6 @@ class StudentCard extends StatelessWidget {
   final String gender;
   final String mobile;
   final String email;
-  final String experience;
-  final String monthlySalary;
   final void Function()? onDelete;
 
   const  StudentCard({
@@ -27,10 +25,8 @@ class StudentCard extends StatelessWidget {
     this.gender = "Male",
     this.mobile = "+91 9876543210",
     this.email = "john.doe@example.com",
-    this.experience = "3 years",
-    this.monthlySalary = "50000",
     this.onDelete,
-    required this.class_standard,
+    this.class_standard = "1st",
 
   }) : super(key: key);
 
@@ -72,12 +68,11 @@ class StudentCard extends StatelessWidget {
                 final controller = Get.find<HomeController>();
                 final studentData = {
                   'name': name,
-                  'registrationId': registrationId,
+                  'registration_id': registrationId,
                   'gender': gender,
                   'mobile': mobile,
                   'email': email,
-                  'experience': experience,
-                  'monthlySalary': monthlySalary,
+                  'class_standard':class_standard,
                 };
                 controller.selectedModel.value = studentData;
                 switch (value) {

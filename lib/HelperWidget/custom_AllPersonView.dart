@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
+import 'package:school_app/HelperWidget/customSearch.dart';
 import 'package:school_app/HelperWidget/customText.dart';
 import 'package:sizer_pro/sizer.dart';
 
@@ -37,25 +38,9 @@ class AllItemView extends StatelessWidget {
               Row(
                 children: [
                   Expanded(
-                    child: TextField(
-                      onChanged: onSearch,
-                      decoration: InputDecoration(
-                        filled: true,
-                        fillColor: Colors.white,
-                        prefixIcon: const Icon(Icons.search),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide:  BorderSide(color: Colors.grey.shade400),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide:
-                          const BorderSide(color: Colors.grey, width: 2),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        contentPadding: EdgeInsets.symmetric(vertical: 1.h,
-                        ),
-                      ),
-                    ),
+                    child: CustomSearchInput(onChanged: (value) {
+
+                    },),
                   ),
                   SizedBox(width: 1.w),
                   InkWell(

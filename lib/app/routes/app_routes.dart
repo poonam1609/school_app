@@ -22,6 +22,8 @@ abstract class Routes {
   static const FORGOT_VERIFICATION = _Paths.FORGOT_VERIFICATION;
   static const CREATE_NEWPASSWORD = _Paths.CREATE_NEWPASSWORD;
   static const PASSWORD_RESET_COMPLETE = _Paths.PASSWORD_RESET_COMPLETE;
+  static const ALL_CLASSES = _Paths.ALL_CLASSES;
+  static const NEW_CLASSES = _Paths.NEW_CLASSES;
 }
 
 abstract class _Paths {
@@ -45,4 +47,6 @@ abstract class _Paths {
   static const FORGOT_VERIFICATION = '/forgot-verification';
   static const CREATE_NEWPASSWORD = '/create-newpassword';
   static const PASSWORD_RESET_COMPLETE = '/password-reset-complete';
+  static const ALL_CLASSES = '/all-classes';
+  static const NEW_CLASSES = '/new-classes';
 }

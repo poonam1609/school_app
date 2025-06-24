@@ -95,7 +95,6 @@ class EmployeeCard extends StatelessWidget {
                   'monthlySalary': monthlySalary,
                 };
                 controller.selectedModel.value = teacherData;
-
                 switch (value) {
                   case 'view':
                     controller.previousNavIndex.value = 102;

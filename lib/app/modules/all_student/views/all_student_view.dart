@@ -35,8 +35,6 @@ class AllStudentView extends GetView<AllStudentController> {
           gender: student['gender'] ?? '',
           mobile: student['mobile'] ?? '',
           email: student['email'] ?? '',
-          experience: student['experience'] ?? '',
-          monthlySalary: student['monthlySalary'] ?? '',
           onDelete: () => allStudentController.deleteStudent(index),
         );
       },
