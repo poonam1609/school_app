@@ -28,7 +28,7 @@ class CustomText extends StatelessWidget {
       overflow: overflow,
       style: TextStyle(
 
-        fontSize: fontSize,
+        fontSize: (fontSize.isNaN || fontSize <= 0) ? 14.0 : fontSize,
         color: color,
         fontWeight: fontWeight,
       ),

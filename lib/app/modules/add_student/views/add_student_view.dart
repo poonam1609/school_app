@@ -5,7 +5,6 @@ import 'package:sizer_pro/sizer.dart';
 
 import '../../../../HelperWidget/customButton.dart';
 import '../../../../HelperWidget/customText.dart';
-import '../../../../HelperWidget/custom_AddPerson.dart';
 import '../../../../HelperWidget/customeTextfield.dart';
 import '../../../../HelperWidget/custome_dropDown.dart';
 import '../controllers/add_student_controller.dart';

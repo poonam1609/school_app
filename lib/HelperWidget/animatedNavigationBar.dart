@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:sizer_pro/sizer.dart';
 import '../app/modules/home/controllers/home_controller.dart';
 
 class AnimatedNavigationBar extends StatelessWidget {

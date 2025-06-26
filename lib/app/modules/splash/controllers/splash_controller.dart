@@ -13,6 +13,7 @@ class SplashController extends GetxController with GetSingleTickerProviderStateM
   }
   @override
   void onInit() {
+
     super.onInit();
     controller = AnimationController(
       duration: Duration(seconds: 3),
@@ -24,6 +25,7 @@ class SplashController extends GetxController with GetSingleTickerProviderStateM
     );
     controller.forward();        // Start animation
     navigateToOnboarding();
+
   }
   @override
   void onClose() {

@@ -13,7 +13,6 @@ class DrawerSubItem {
     this.onTap,
   });
 }
-
 class DrawerSection {
   final String title;
   final IconData icon;

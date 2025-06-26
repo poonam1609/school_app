@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:sizer_pro/sizer.dart';
 
 class CustomDropdown extends StatelessWidget {
   final String value;
@@ -17,18 +16,19 @@ class CustomDropdown extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-
       margin: const EdgeInsets.only(bottom: 16),
       child: DropdownButtonFormField<String>(
+        icon: Icon(Icons.keyboard_arrow_down),
         value: value,
+
         decoration: InputDecoration(
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
-            borderSide: const BorderSide(color: Colors.grey),
+            borderSide:  BorderSide(color: Colors.grey.shade400),
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
-            borderSide: const BorderSide(color: Colors.grey),
+            borderSide:  BorderSide(color: Colors.grey.shade400),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),

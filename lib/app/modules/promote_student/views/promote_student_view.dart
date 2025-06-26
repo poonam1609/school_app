@@ -78,7 +78,6 @@ class PromoteStudentView extends GetView<PromoteStudentController> {
                           child: Center(child: Text("No students found.")),
                         );
                       }
-                
                       return ListView.builder(
                         shrinkWrap: true,
                         physics: NeverScrollableScrollPhysics(), // So it doesn't conflict with parent scroll
@@ -173,8 +172,6 @@ class PromoteStudentView extends GetView<PromoteStudentController> {
                     )
                         : SizedBox.shrink(),
                     ),
-                
-                
                   ],
                 ),
               ),

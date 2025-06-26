@@ -32,7 +32,6 @@ class OfferLetterView extends GetView<OfferLetterController> {
                Padding(
                  padding: EdgeInsets.symmetric(horizontal: 4.w),
                  child: CustomSearchInput(onChanged: (value) {
-
                  },),
                ),
                 SizedBox(height: 2.h),
@@ -48,14 +47,6 @@ class OfferLetterView extends GetView<OfferLetterController> {
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(2.h),
-                   /*         boxShadow: [
-                              BoxShadow(
-                                color: Colors.grey.withOpacity(0.2),
-                                spreadRadius: 1,
-                                blurRadius: 3,
-                                offset: Offset(0, 2),
-                              ),
-                            ],*/
                             border: Border.all(
                               color: employee.isFemale
                                   ? Color(0xffC838BA).withOpacity(0.7)
@@ -77,7 +68,6 @@ class OfferLetterView extends GetView<OfferLetterController> {
                           ),
                           ),
 
-                          /// Icons below profile (no extra space)
                                   Row(
                                     children: [
                                       IconButton(

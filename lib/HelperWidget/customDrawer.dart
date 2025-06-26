@@ -7,8 +7,7 @@ import '../models/drawerModel.dart';
 import 'drawerTile.dart';
 
 class CustomDrawer extends StatelessWidget {
-  final HomeController controller = Get.find();
-
+  final HomeController controller = Get.find<HomeController>();
   final Map<String, List<DrawerSection>> groupedSections = {
     'Dashboard': [
       DrawerSection(title: 'Home', icon: Icons.home_outlined, index: 0),
@@ -40,8 +39,9 @@ class CustomDrawer extends StatelessWidget {
       ],),
       DrawerSection(title: 'Certificates', icon: Icons.workspace_premium_outlined, index: 7,subItems: [
         DrawerSubItem(title: 'Bonafied Certificate', index: 701, icon: Icons.school_outlined),
-        DrawerSubItem(title: 'Leaving Certificate', index: 702, icon: Icons.exit_to_app),
-        DrawerSubItem(title: 'Character Certificate', index: 703, icon: Icons.recent_actors),
+        DrawerSubItem(title: 'Relieving Certificate', index: 702, icon: Icons.exit_to_app),
+        DrawerSubItem(title: 'Character Certificate', index: 703, icon: Icons.recent_actors_outlined),
+        DrawerSubItem(title: 'Transfer Certificate', index: 704, icon:Icons.article_outlined)
       ],),
     ],
     'Daily Operation': [
@@ -118,6 +118,7 @@ class CustomDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Drawer(
       child: Container(
         color: Colors.white,
@@ -135,23 +136,31 @@ class CustomDrawer extends StatelessWidget {
                     backgroundColor: Colors.white,
                     child: Icon(Icons.school, size: 35, color: Colors.blue),
                   ),
-                  SizedBox(height: 2.h),
+                  SizedBox(height: 16),
                   Text(
                     'School Management',
                     style: TextStyle(
                       color: const Color(0xff363939),
-                      fontSize: 6.sp,
+                      fontSize: 18,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: 1.h),
+                  SizedBox(height:8),
                 ],
               ),
             ),
             for (var entry in groupedSections.entries) ...[
-              drawerHeader(entry.key),
-              ...entry.value.map((section) => DrawerItemTile(section: section, controller: controller)),
-            ],
+              if (entry.key.isNotEmpty && entry.value.isNotEmpty) ...[
+                drawerHeader(entry.key),
+                ...entry.value.map((section) {
+                  if (section.title.isEmpty || section.index == null) {
+                    debugPrint('⚠️ Invalid DrawerSection: ${section.title}');
+                    return const SizedBox.shrink(); // prevent crash
+                  }
+                  return DrawerItemTile(section: section, controller: controller);
+                }).toList(),
+              ],
+            ]
           ],
         ),
       ),

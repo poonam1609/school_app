@@ -28,7 +28,6 @@ class PromoteStudentController extends GetxController {
     if (studentData.containsKey(standard_class.value)) {
       students.addAll(studentData[standard_class.value]!);
     }
-
     // Show promote section only if students are present
     showPromoteSection.value = standard_class.value != 'Select Class' && students.isNotEmpty;
   }

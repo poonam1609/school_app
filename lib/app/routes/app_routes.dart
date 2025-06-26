@@ -24,6 +24,14 @@ abstract class Routes {
   static const PASSWORD_RESET_COMPLETE = _Paths.PASSWORD_RESET_COMPLETE;
   static const ALL_CLASSES = _Paths.ALL_CLASSES;
   static const NEW_CLASSES = _Paths.NEW_CLASSES;
+  static const HOME_WORK = _Paths.HOME_WORK;
+  static const TIME_TABLE = _Paths.TIME_TABLE;
+  static const SUBJECT_WITH_CLASS = _Paths.SUBJECT_WITH_CLASS;
+  static const CREATE_SUBJECT = _Paths.CREATE_SUBJECT;
+  static const BONAFIED_CERTIFICATE = _Paths.BONAFIED_CERTIFICATE;
+  static const CHARACTER_CERTIFICATE = _Paths.CHARACTER_CERTIFICATE;
+  static const RELIEVING_CERTIFICATE = _Paths.RELIEVING_CERTIFICATE;
+  static const TRANSFER_CERTIFICATE = _Paths.TRANSFER_CERTIFICATE;
 }
 
 abstract class _Paths {
@@ -49,4 +57,12 @@ abstract class _Paths {
   static const PASSWORD_RESET_COMPLETE = '/password-reset-complete';
   static const ALL_CLASSES = '/all-classes';
   static const NEW_CLASSES = '/new-classes';
+  static const HOME_WORK = '/home-work';
+  static const TIME_TABLE = '/time-table';
+  static const SUBJECT_WITH_CLASS = '/subject-with-class';
+  static const CREATE_SUBJECT = '/create-subject';
+  static const BONAFIED_CERTIFICATE = '/bonafied-certificate';
+  static const RELIEVING_CERTIFICATE = '/relieving-certificate';
+  static const CHARACTER_CERTIFICATE = '/character-certificate';
+  static const TRANSFER_CERTIFICATE = '/transfer-certificate';
 }

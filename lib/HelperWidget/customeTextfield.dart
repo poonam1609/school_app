@@ -41,6 +41,7 @@ class CustomTextField extends StatelessWidget {
     return isPassword && isPasswordVisible != null
         ? Obx(() {
           return TextFormField(
+            readOnly: true,
             controller: controller,
             obscureText:
                 isPassword ? !(isPasswordVisible?.value ?? false) : false,

@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:school_app/app/modules/teacher_info/controllers/teacher_info_controller.dart';
-import 'package:school_app/app/routes/app_pages.dart';
 import 'package:sizer_pro/sizer.dart';
 import '../app/modules/edit_student/controllers/edit_student_controller.dart';
-import '../app/modules/edit_teacher/controllers/edit_teacher_controller.dart';
 import '../app/modules/home/controllers/home_controller.dart';
 import '../app/modules/student_info/controllers/student_info_controller.dart';
 

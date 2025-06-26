@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:school_app/app/modules/teacher_info/controllers/teacher_info_controller.dart';
-import 'package:school_app/app/routes/app_pages.dart';
 import 'package:sizer_pro/sizer.dart';
 import '../app/modules/edit_teacher/controllers/edit_teacher_controller.dart';
 import '../app/modules/home/controllers/home_controller.dart';
@@ -49,14 +48,8 @@ class EmployeeCard extends StatelessWidget {
         ),
         borderRadius: BorderRadius.circular(0.7.h),
         boxShadow: [
-        /*  BoxShadow(
-            color: Colors.grey.withOpacity(0.1),
-            blurRadius: 3,
-            offset: Offset(0, 0),
-          ),*/
         ],
       ),
-
       child: Stack(
         children: [
           Positioned(
@@ -196,7 +189,6 @@ class EmployeeCard extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 2.h),
-
               // Name
               Text(
                 name,
@@ -208,7 +200,6 @@ class EmployeeCard extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
               ),
               SizedBox(height: 0.5.h),
-
               // Role
               Text(
                 role,
