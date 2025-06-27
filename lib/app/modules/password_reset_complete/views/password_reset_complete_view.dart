@@ -7,6 +7,7 @@ import 'package:school_app/HelperWidget/customText.dart';
 import 'package:school_app/app/routes/app_pages.dart';
 import 'package:sizer_pro/sizer.dart';
 
+import '../../../appTheme/customColor.dart';
 import '../controllers/password_reset_complete_controller.dart';
 
 class PasswordResetCompleteView
@@ -17,6 +18,8 @@ class PasswordResetCompleteView
   PasswordResetCompleteView({super.key});
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    final customColors = Theme.of(context).extension<CustomColors>();
     return GetBuilder(
       init: passwordResetCompleteController,
       builder: (controller) {
@@ -32,7 +35,9 @@ class PasswordResetCompleteView
             height: double.infinity,
             decoration: BoxDecoration(
               gradient: LinearGradient(
-                colors: [Color(0xFF1E88E5).withOpacity(0.5), Color(0xffF0F1F5)],
+                colors: isDarkMode
+                    ? [Colors.black.withOpacity(0.7), Colors.grey[900]!]
+                    : [Color(0xFF1E88E5).withOpacity(0.5), Color(0xffF0F1F5)],
                 begin: Alignment.bottomCenter,
                 end: Alignment.center,
               ),
@@ -55,7 +60,7 @@ class PasswordResetCompleteView
                         text: "Successful",
                         fontSize: 7.sp,
                         fontWeight: FontWeight.bold,
-                        color: Colors.grey.shade800,
+                        color: customColors!.primaryTextColor,
                       ),
                       SizedBox(height: 4.h),
                       CustomText(

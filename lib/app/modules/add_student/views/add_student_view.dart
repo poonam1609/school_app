@@ -7,6 +7,7 @@ import '../../../../HelperWidget/customButton.dart';
 import '../../../../HelperWidget/customText.dart';
 import '../../../../HelperWidget/customeTextfield.dart';
 import '../../../../HelperWidget/custome_dropDown.dart';
+import '../../../appTheme/customColor.dart';
 import '../controllers/add_student_controller.dart';
 
 class AddStudentView extends GetView<AddStudentController> {
@@ -14,6 +15,7 @@ class AddStudentView extends GetView<AddStudentController> {
   AddStudentView({super.key});
   @override
   Widget build(BuildContext context) {
+    final customColors = Theme.of(context).extension<CustomColors>();
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -628,7 +630,7 @@ class AddStudentView extends GetView<AddStudentController> {
                       decoration: BoxDecoration(
                         border: Border.all(color: Colors.grey),
                         borderRadius: BorderRadius.circular(8),
-                        color: Colors.white,
+                        color: customColors?.containerBackgroundColor,
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -638,7 +640,7 @@ class AddStudentView extends GetView<AddStudentController> {
                             style: TextStyle(
                               fontSize: 14,
                               fontWeight: FontWeight.w500,
-                              color: Colors.grey[700],
+                              color: customColors?.primaryTextColor,
                             ),
                           ),
                           Obx(
@@ -687,7 +689,7 @@ class AddStudentView extends GetView<AddStudentController> {
                       decoration: BoxDecoration(
                         border: Border.all(color: Colors.grey),
                         borderRadius: BorderRadius.circular(8),
-                        color: Colors.white,
+                        color: customColors?.containerBackgroundColor,
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -697,7 +699,7 @@ class AddStudentView extends GetView<AddStudentController> {
                             style: TextStyle(
                               fontSize: 14,
                               fontWeight: FontWeight.w500,
-                              color: Colors.grey[700],
+                              color: customColors?.primaryTextColor,
                             ),
                           ),
                           Obx(

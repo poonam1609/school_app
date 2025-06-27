@@ -7,6 +7,7 @@ import 'package:sizer_pro/sizer.dart';
 import '../../../../HelperWidget/customSearch.dart';
 import '../../../../HelperWidget/customText.dart';
 import '../../../../HelperWidget/custome_dropDown.dart';
+import '../../../appTheme/customColor.dart';
 import '../controllers/transfer_certificate_controller.dart';
 
 class TransferCertificateView extends GetView<TransferCertificateController> {
@@ -14,6 +15,8 @@ class TransferCertificateView extends GetView<TransferCertificateController> {
    TransferCertificateView({super.key});
   @override
   Widget build(BuildContext context) {
+    final customColors = Theme.of(context).extension<CustomColors>();
+
     return GetBuilder(
       init: transferCertificateController,
       builder: (controller) {
@@ -46,7 +49,7 @@ class TransferCertificateView extends GetView<TransferCertificateController> {
                           width: 12.w,
                           height: 5.9.h,
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: customColors?.containerBackgroundColor,
                             border: Border.all(color:  Colors.grey.shade400),
                             borderRadius: BorderRadius.circular(8),
                           ),
@@ -91,7 +94,7 @@ class TransferCertificateView extends GetView<TransferCertificateController> {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(3.w),
                           border: Border.all(color: genderColor, width: 0.5),
-                          color: Colors.white,
+                          color: customColors?.containerBackgroundColor,
                         ),
                         padding: EdgeInsets.all(2.w),
                         child: Row(
@@ -117,12 +120,12 @@ class TransferCertificateView extends GetView<TransferCertificateController> {
                                     style: TextStyle(
                                         fontSize: 6.7.sp,
                                         fontWeight: FontWeight.bold,
-                                        color: Colors.grey.shade700),
+                                        color: customColors?.primaryTextColor),
                                   ),
                                   SizedBox(height: 0.5.h),
                                   Text(
                                     'Class: ${student['class']}',
-                                    style: TextStyle(fontSize: 5.8.sp, color: Colors.grey.shade600,),
+                                    style: TextStyle(fontSize: 5.8.sp,  color: customColors?.primaryTextColor),
                                   ),
                                 ],
                               ),

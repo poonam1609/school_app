@@ -31,11 +31,10 @@ class DashboardCard extends StatelessWidget {
               fit: BoxFit.cover,
             ),
           ),
-
           // Blur effect
           Positioned.fill(
             child: BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 2, sigmaY: 2), // adjust blur intensity
+              filter: ImageFilter.blur(sigmaX: 1.4, sigmaY: 1.4), // adjust blur intensity
               child: Container(
                 color: Colors.black.withOpacity(0.4), // optional overlay for better text visibility
               ),

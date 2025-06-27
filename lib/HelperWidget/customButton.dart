@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sizer_pro/sizer.dart';
 
+import '../app/appTheme/customColor.dart';
+
 class PrimaryButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
@@ -17,6 +19,8 @@ class PrimaryButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final customColors = Theme.of(context).extension<CustomColors>()!;
+
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
@@ -32,12 +36,14 @@ class PrimaryButton extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           if (icon != null) ...[
-            Icon(icon, size: 7.sp, color: Colors.white),
+            Icon(icon, size: 7.sp, color:customColors.primaryTextColor ),
             SizedBox(width: 2.w),
           ],
           Text(
+
             text,
             style: TextStyle(
+              color:Colors.white,
               fontSize: 5.5.sp,
               fontWeight: FontWeight.bold,
             ),

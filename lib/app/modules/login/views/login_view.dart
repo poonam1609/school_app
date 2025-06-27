@@ -6,6 +6,7 @@ import 'package:sizer_pro/sizer.dart';
 import '../../../../HelperWidget/customButton.dart';
 import '../../../../HelperWidget/customText.dart';
 import '../../../../HelperWidget/customeTextfield.dart';
+import '../../../appTheme/customColor.dart';
 import '../controllers/login_controller.dart';
 
 class LoginView extends GetView<LoginController> {
@@ -14,6 +15,8 @@ class LoginView extends GetView<LoginController> {
 
   @override
   Widget build(BuildContext context) {
+    final customColors = Theme.of(context).extension<CustomColors>()!;
+
     return GetBuilder(
       init: loginController,
       builder: (controller) {
@@ -26,7 +29,7 @@ class LoginView extends GetView<LoginController> {
             ),
           ),
           child: Scaffold(
-            backgroundColor: Colors.transparent,
+            backgroundColor: customColors.scaffoldBackgroundColor,
             body: SafeArea(
               child: SingleChildScrollView(
                 padding: EdgeInsets.all(2.h),
@@ -52,6 +55,7 @@ class LoginView extends GetView<LoginController> {
                       Text(
                         'Sign in to your\nAccount',
                         style: TextStyle(
+                          color:  customColors.primaryTextColor,
                           fontSize: 11.sp,
                           fontWeight: FontWeight.bold,
                         ),
@@ -61,11 +65,11 @@ class LoginView extends GetView<LoginController> {
                       CustomText(
                         text: 'Enter your email and password to log in ',
                         fontSize: 4.6.sp,fontWeight: FontWeight.bold,
-                        color: Colors.grey[500]!,
+                        color:  customColors.primaryTextColor,
                       ),
                       SizedBox(height: 3.h),
                       Material(
-                        color: Colors.grey.shade50,
+                        color: customColors.containerBackgroundColor,
                         elevation: 7,
                         borderRadius: BorderRadius.circular(
                           2.h,
@@ -83,12 +87,12 @@ class LoginView extends GetView<LoginController> {
                               CustomText(
                                 text: "Email",
                                 fontSize: 4.6.sp,fontWeight: FontWeight.bold,
-                                color: Colors.grey.shade600,
+                                color: customColors.primaryTextColor,
 
                               ),
                               SizedBox(height: 1.h),
                               CustomTextField(
-                                color: Color(0xffCBD2E0),
+                                // color: Color(0xffCBD2E0),
                                 controller: loginController.emailController,
                                 prefixIcon: Icons.email_outlined,
                                 keyboardType: TextInputType.emailAddress,
@@ -98,12 +102,12 @@ class LoginView extends GetView<LoginController> {
                               SizedBox(height: 4.h),
                               CustomText(
                                 text: "Password",
-                                color: Colors.grey.shade600,
+                                color: customColors.primaryTextColor,
                                 fontSize: 4.6.sp,fontWeight: FontWeight.bold,
                               ),
                               SizedBox(height: 1.h),
                               CustomTextField(
-                                color: Color(0xffCBD2E0),
+                                // color: Color(0xffCBD2E0),
                                 isPassword: true,
                                 isPasswordVisible:
                                     loginController.isPasswordVisible,
@@ -151,7 +155,7 @@ class LoginView extends GetView<LoginController> {
                                   CustomText(
                                     text: "Remember me",
                                     fontSize: 4.6.sp,fontWeight: FontWeight.bold,
-                                    color: Colors.grey.shade600,
+                                    color: customColors.primaryTextColor,
                                   ),
                                   Spacer(),
                                   InkWell(
@@ -162,7 +166,7 @@ class LoginView extends GetView<LoginController> {
                                       text: "Forgot Password.?",
                                       fontWeight: FontWeight.w700,
                                       fontSize: 4.6.sp,
-                                      color: Color(0xffA6A6A6),
+                                      color: customColors.primaryTextColor,
                                     ),
                                   ),
                                 ],

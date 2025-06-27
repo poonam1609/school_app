@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../app/appTheme/customColor.dart';
+
 class CustomDropdown extends StatelessWidget {
   final String value;
   final List<String> items;
@@ -15,6 +17,7 @@ class CustomDropdown extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final customColors = Theme.of(context).extension<CustomColors>();
     return Container(
       margin: const EdgeInsets.only(bottom: 16),
       child: DropdownButtonFormField<String>(
@@ -35,7 +38,7 @@ class CustomDropdown extends StatelessWidget {
             borderSide: const BorderSide(color: Colors.blue, width: 2),
           ),
           filled: true,
-          fillColor: Colors.grey[50],
+          fillColor: customColors?.textFieldFillColor,
           contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
         ),
         items: items.map((String item) {

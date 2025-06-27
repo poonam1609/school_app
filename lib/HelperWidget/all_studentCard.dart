@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:sizer_pro/sizer.dart';
+import '../app/appTheme/customColor.dart';
 import '../app/modules/edit_student/controllers/edit_student_controller.dart';
 import '../app/modules/home/controllers/home_controller.dart';
 import '../app/modules/student_info/controllers/student_info_controller.dart';
@@ -29,11 +30,12 @@ class StudentCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final customColors = Theme.of(context).extension<CustomColors>();
     return Container(
       margin: EdgeInsets.all(2.w),
       padding: EdgeInsets.symmetric(vertical: 1.h),
       decoration: BoxDecoration(
-          color: Colors.white,
+          color:customColors?.containerBackgroundColor ,
         border: Border.all(
           color:
           gender.toLowerCase() == 'male'
@@ -186,7 +188,7 @@ class StudentCard extends StatelessWidget {
                   Text(
                     registrationId,
                     style: TextStyle(
-                      color: Colors.grey[600],
+                      color: customColors?.secondaryTextColor,
                       fontSize: 5.sp,
                     ),
                     maxLines: 1,

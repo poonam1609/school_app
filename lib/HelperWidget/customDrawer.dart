@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:school_app/app/modules/home/controllers/home_controller.dart';
 import 'package:sizer_pro/sizer.dart';
+import '../app/appTheme/customColor.dart';
 import '../models/drawerModel.dart';
 import 'drawerTile.dart';
 
@@ -109,7 +110,6 @@ class CustomDrawer extends StatelessWidget {
         title,
         style: TextStyle(
           fontSize: 6.5.sp,
-
           color: Colors.blueGrey,
         ),textAlign: TextAlign.center,
       ),
@@ -118,10 +118,10 @@ class CustomDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
+    final customColors = Theme.of(context).extension<CustomColors>();
     return Drawer(
       child: Container(
-        color: Colors.white,
+        color: customColors?.containerBackgroundColor,
         child: ListView(
           padding: EdgeInsets.zero,
           children: [

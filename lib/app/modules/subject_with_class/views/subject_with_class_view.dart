@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer_pro/sizer.dart';
 
+import '../../../appTheme/customColor.dart';
 import '../controllers/subject_with_class_controller.dart';
 
 class SubjectWithClassView extends GetView<SubjectWithClassController> {
@@ -10,11 +11,13 @@ class SubjectWithClassView extends GetView<SubjectWithClassController> {
    SubjectWithClassView({super.key});
   @override
   Widget build(BuildContext context) {
-   return GetBuilder(
+    final customColors = Theme.of(context).extension<CustomColors>();
+
+    return GetBuilder(
      init: subjectWithClassController,
      builder: (controller) {
      return Scaffold(
-       backgroundColor: Colors.grey.shade100,
+       backgroundColor:customColors?.scaffoldBackgroundColor ,
        body: Padding(
          padding: EdgeInsets.all(3.w),
          child: ListView.builder(
@@ -25,7 +28,7 @@ class SubjectWithClassView extends GetView<SubjectWithClassController> {
                margin: EdgeInsets.only(bottom: 2.h),
                padding: EdgeInsets.all(3.w),
                decoration: BoxDecoration(
-                 color: Colors.white,
+                 color: customColors?.containerBackgroundColor,
                  borderRadius: BorderRadius.circular(3.w),
                  boxShadow: [
                    BoxShadow(
@@ -52,13 +55,13 @@ class SubjectWithClassView extends GetView<SubjectWithClassController> {
                          children: [
                            CircleAvatar(radius: 1.5.w, backgroundColor: Colors.blue),
                            SizedBox(width: 1.w),
-                           Text("Obtained Marks", style: TextStyle(fontSize: 5.sp,fontWeight: FontWeight.bold,color: Colors.grey.shade800 )),
+                           Text("Obtained Marks", style: TextStyle(fontSize: 5.sp,fontWeight: FontWeight.bold,color: customColors?.secondaryTextColor )),
                            SizedBox(width: 4.w),
                            CircleAvatar(radius: 1.5.w, backgroundColor: Color(0xffB2D6FF)),
                            SizedBox(width: 1.w),
-                           Text("Total Marks", style: TextStyle(fontSize: 5.sp,fontWeight: FontWeight.bold,color: Colors.grey.shade800 )),
+                           Text("Total Marks", style: TextStyle(fontSize: 5.sp,fontWeight: FontWeight.bold,color: customColors?.secondaryTextColor )),
                            SizedBox(width: 3.w),
-                           Icon(Icons.edit_outlined, size: 8.sp, color: Colors.grey.shade800),
+                           Icon(Icons.edit_outlined, size: 8.sp, color: customColors?.primaryTextColor),
                          ],
                        ),
                      ],

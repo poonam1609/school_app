@@ -5,6 +5,7 @@ import 'package:sizer_pro/sizer.dart';
 import '../../../../HelperWidget/customButton.dart';
 import '../../../../HelperWidget/onboarding_page.dart';
 import '../../../../HelperWidget/page_indicator.dart';
+import '../../../appTheme/customColor.dart';
 import '../controllers/onboarding_controller.dart';
 
 class OnboardingView extends GetView<OnboardingController> {
@@ -14,6 +15,7 @@ class OnboardingView extends GetView<OnboardingController> {
 
   @override
   Widget build(BuildContext context) {
+    final customColors = Theme.of(context).extension<CustomColors>()!;
     return GetBuilder(
       init: onboardingController,
       builder: (controller) {
@@ -29,7 +31,7 @@ class OnboardingView extends GetView<OnboardingController> {
                   child: Text(
                     'Skip',
                     style: TextStyle(
-                      color: Colors.grey,
+                      color: customColors.secondaryTextColor,
                       fontSize: 6.sp,
                       fontWeight: FontWeight.bold,
                     ),
@@ -57,7 +59,7 @@ class OnboardingView extends GetView<OnboardingController> {
                       (index) => PageIndicator(
                     index: index,
                     currentPage: onboardingController.currentPage,
-                    activeColor: Theme.of(context).primaryColor,
+                        activeColor: customColors.inactiveColor ?? Colors.grey,
                   ),
                 ),
               ),

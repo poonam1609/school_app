@@ -8,6 +8,7 @@ import 'package:school_app/HelperWidget/customText.dart';
 import 'package:sizer_pro/sizer.dart';
 
 import '../../../../HelperWidget/customButton.dart';
+import '../../../appTheme/customColor.dart';
 import '../../home/controllers/home_controller.dart';
 import '../controllers/student_info_controller.dart';
 
@@ -15,6 +16,8 @@ class StudentInfoView extends GetView<StudentInfoController> {
   const StudentInfoView({super.key});
   @override
   Widget build(BuildContext context) {
+    final customColors = Theme.of(context).extension<CustomColors>();
+
     final homeController = Get.find<HomeController>();
     final controller = Get.find<StudentInfoController>();
     return WillPopScope(
@@ -66,7 +69,7 @@ class StudentInfoView extends GetView<StudentInfoController> {
                 style: TextStyle(
                   fontSize: 7.sp,
                   fontWeight: FontWeight.bold,
-                  color: Colors.black,
+                  color:customColors?.primaryTextColor,
                 ),
               ),
     /*          SizedBox(height:2.h),
@@ -161,6 +164,8 @@ class StudentInfoView extends GetView<StudentInfoController> {
     );
   }
   Widget _buildInfoCard(BuildContext context,String title, List<Widget> children) {
+    final customColors = Theme.of(context).extension<CustomColors>();
+
     return Card(
       elevation: 4,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
@@ -187,6 +192,8 @@ class StudentInfoView extends GetView<StudentInfoController> {
   }
 
   Widget _buildInfoItem(BuildContext context,IconData icon, String label, String value) {
+    final customColors = Theme.of(context).extension<CustomColors>();
+
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: Row(
@@ -201,17 +208,17 @@ class StudentInfoView extends GetView<StudentInfoController> {
             width: 110,
             child: Text(
               '$label:',
-              style: const TextStyle(
+              style:  TextStyle(
                 fontWeight: FontWeight.w600,
-                color: Colors.black87,
+                color:customColors?.primaryTextColor,
               ),
             ),
           ),
           Expanded(
             child: Text(
               value,
-              style: const TextStyle(
-                color: Colors.black54,
+              style:  TextStyle(
+                color: customColors?.primaryTextColor,
                 fontSize: 16,
               ),
             ),

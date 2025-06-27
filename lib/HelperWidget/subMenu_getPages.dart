@@ -15,9 +15,11 @@ import 'package:school_app/app/modules/new_classes/views/new_classes_view.dart';
 import 'package:school_app/app/modules/offer_letter/views/offer_letter_view.dart';
 import 'package:school_app/app/modules/promote_student/views/promote_student_view.dart';
 import 'package:school_app/app/modules/relieving_certificate/views/relieving_certificate_view.dart';
+import 'package:school_app/app/modules/student_attendence/views/student_attendence_view.dart';
 import 'package:school_app/app/modules/student_idCard/views/student_id_card_view.dart';
 import 'package:school_app/app/modules/student_info/views/student_info_view.dart';
 import 'package:school_app/app/modules/subject_with_class/views/subject_with_class_view.dart';
+import 'package:school_app/app/modules/teacher_attendence/views/teacher_attendence_view.dart';
 import 'package:school_app/app/modules/teacher_info/views/teacher_info_view.dart';
 import 'package:school_app/app/modules/time_table/views/time_table_view.dart';
 import 'package:school_app/app/modules/transfer_certificate/views/transfer_certificate_view.dart';
@@ -44,5 +46,7 @@ final Map<int, Widget> pageMap = {
   701: BonafiedCertificateView(),
   702:RelievingCertificateView(),
   703: CharacterCertificateView(),
-  704:TransferCertificateView()
+  704:TransferCertificateView(),
+  801:StudentAttendenceView(),
+  802:TeacherAttendenceView()
 };

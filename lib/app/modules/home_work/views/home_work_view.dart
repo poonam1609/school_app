@@ -173,6 +173,7 @@ import 'package:school_app/HelperWidget/customeTextfield.dart';
 import 'package:school_app/HelperWidget/custome_dropDown.dart';
 import 'package:school_app/HelperWidget/home_workCard.dart';
 import 'package:sizer_pro/sizer.dart';
+import '../../../appTheme/customColor.dart';
 import '../controllers/home_work_controller.dart';
 
 class HomeWorkView extends GetView<HomeWorkController> {
@@ -185,13 +186,15 @@ class HomeWorkView extends GetView<HomeWorkController> {
         padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 2.h),
         child: Obx(() {
           return homeWorkController.showAddHomeworkForm.value
-              ? _buildAddHomeworkForm()
+              ? _buildAddHomeworkForm(context)
               : _buildHomeworkMainList(context);
         }),
       ),
     );
   }
   Widget _buildHomeworkMainList(BuildContext context) {
+    final customColors = Theme.of(context).extension<CustomColors>();
+
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -209,13 +212,13 @@ class HomeWorkView extends GetView<HomeWorkController> {
           Container(
             padding: EdgeInsets.all(3.w),
             decoration: BoxDecoration(
-              color: Colors.grey.shade400,
+              color: customColors?.secondaryTextColor,
               borderRadius: BorderRadius.circular(2.w),
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                CustomText(text: 'Assigned', fontSize: 5.5.sp),
+                CustomText(text: 'Assigned', fontSize: 5.5.sp,color: customColors!.secondaryTextColor,),
                 SizedBox(height: 1.h),
                 InkWell(
                   onTap: () async {
@@ -240,7 +243,7 @@ class HomeWorkView extends GetView<HomeWorkController> {
                   ),
                 ),
                 SizedBox(height: 2.h),
-                CustomText(text: 'Select Class', fontSize: 5.5.sp),
+                CustomText(text: 'Select Class', fontSize: 5.5.sp,color: customColors.secondaryTextColor,),
                 SizedBox(height: 1.h),
                 Obx(() => CustomDropdown(
                   value: homeWorkController.selectedClass.value,
@@ -285,14 +288,16 @@ class HomeWorkView extends GetView<HomeWorkController> {
     );
   }
 
-  Widget _buildAddHomeworkForm() {
+  Widget _buildAddHomeworkForm(BuildContext context) {
+    final customColors = Theme.of(context).extension<CustomColors>();
+
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Center(child: CustomText(text: "Add Homework", fontSize: 8.sp, fontWeight: FontWeight.bold)),
+          Center(child: CustomText(text: "Add Homework", fontSize: 8.sp, fontWeight: FontWeight.bold,color: customColors!.primaryTextColor,)),
           SizedBox(height: 2.h),
-          CustomText(text: 'Assigned', fontSize: 5.5.sp),
+          CustomText(text: 'Assigned', fontSize: 5.5.sp,color: customColors.primaryTextColor),
           SizedBox(height: 1.h),
           InkWell(
             onTap: () async {
@@ -317,7 +322,7 @@ class HomeWorkView extends GetView<HomeWorkController> {
             ),
           ),
           SizedBox(height: 2.h),
-          CustomText(text: 'Select Class', fontSize: 5.5.sp),
+          CustomText(text: 'Select Class', fontSize: 5.5.sp,color: customColors.primaryTextColor),
           SizedBox(height: 1.h),
           Obx(() => CustomDropdown(
             value: homeWorkController.selectedClass.value,
@@ -325,7 +330,7 @@ class HomeWorkView extends GetView<HomeWorkController> {
             onChanged: (value) => homeWorkController.selectedClass.value =
                 value ?? 'Select Class',
           )),
-          CustomText(text: 'Select Subject', fontSize: 5.5.sp),
+          CustomText(text: 'Select Subject', fontSize: 5.5.sp,color: customColors.primaryTextColor),
           SizedBox(height: 2.h),
           Obx(() => CustomDropdown(
             value: homeWorkController.selectedSubject.value,
@@ -333,13 +338,13 @@ class HomeWorkView extends GetView<HomeWorkController> {
             onChanged: (value) => homeWorkController.selectedSubject.value =
                 value ?? 'Select Subject',
           )),
-          CustomText(text: 'Homework Notes', fontSize: 5.5.sp),
+          CustomText(text: 'Homework Notes', fontSize: 5.5.sp,color: customColors.primaryTextColor),
           TextFormField(
             controller: homeWorkController.notesController,
             maxLines: 5,
             decoration: InputDecoration(
               filled: true,
-              fillColor: Colors.white,
+              fillColor: customColors?.containerBackgroundColor,
 
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(1.h),
@@ -367,7 +372,7 @@ class HomeWorkView extends GetView<HomeWorkController> {
           SizedBox(height: 2.h),
           Row(
             children: [
-              Text("Add Attachment", style: TextStyle(color: Colors.grey.shade800, fontSize: 5.6.sp)),
+              Text("Add Attachment", style: TextStyle(color:customColors?.primaryTextColor, fontSize: 5.6.sp)),
               SizedBox(width: 2.w),
               Icon(Icons.attachment_sharp, color: Colors.grey),
             ],

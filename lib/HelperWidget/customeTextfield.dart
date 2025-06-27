@@ -3,6 +3,8 @@ import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:sizer_pro/sizer.dart';
 
+import '../app/appTheme/customColor.dart';
+
 class CustomTextField extends StatelessWidget {
   final TextEditingController controller;
   final IconData? icon;
@@ -38,6 +40,8 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final customColors = Theme.of(context).extension<CustomColors>()!;
+
     return isPassword && isPasswordVisible != null
         ? Obx(() {
           return TextFormField(
@@ -52,13 +56,13 @@ class CustomTextField extends StatelessWidget {
               contentPadding: EdgeInsets.symmetric(vertical: 12, horizontal: 12),
 
               prefixIcon: prefixIcon != null
-                  ? Icon(prefixIcon, color: Colors.black54)
+                  ? Icon(prefixIcon, color: customColors.primaryTextColor)
                   : null,
               suffixIcon: isPassword && isPasswordVisible != null
                   ? IconButton(
                 icon: Icon(
                   isPasswordVisible!.value ? Icons.visibility : Icons.visibility_off,
-                  color:  Colors.black54,
+                  color: customColors.primaryTextColor,
                 ),
                 onPressed: togglePasswordVisibility,
               )
@@ -70,11 +74,11 @@ class CustomTextField extends StatelessWidget {
                   : null,
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(1.h),
-                borderSide: BorderSide(color: color ?? Colors.grey, width: 1),
+                borderSide: BorderSide(color: Colors.grey, width: 1),
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(1.h),
-                borderSide: BorderSide(color: color ?? Theme.of(context).primaryColor, width: 1),
+                borderSide: BorderSide(color: Theme.of(context).primaryColor, width: 1),
               ),
               errorBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(1.h),
@@ -86,11 +90,11 @@ class CustomTextField extends StatelessWidget {
               ),
 
               border: OutlineInputBorder(
-                borderSide: BorderSide( color: color ?? Colors.transparent,),
+                borderSide: BorderSide( color: Colors.transparent,),
                 borderRadius: BorderRadius.circular(1.h),
               ),
               filled: true,
-              fillColor: Colors.white,
+                fillColor: customColors.textFieldFillColor,
             ),
           );
         })
@@ -103,16 +107,16 @@ class CustomTextField extends StatelessWidget {
 
             prefixIcon:
             prefixIcon  != null
-                    ? Icon(prefixIcon, color: Colors.black54)
+                    ? Icon(prefixIcon, color: customColors.primaryTextColor)
                     : null,
             border: OutlineInputBorder(borderRadius: BorderRadius.circular(1.h)),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(1.h),
-              borderSide: BorderSide(color: color ?? Colors.grey.shade300, width: 1),
+              borderSide: BorderSide(color:  Colors.grey.shade300, width: 1),
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(1.h),
-              borderSide: BorderSide(color: color ?? Theme.of(context).primaryColor, width: 1),
+              borderSide: BorderSide(color: Theme.of(context).primaryColor, width: 1),
             ),
             errorBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(1.h),
@@ -124,7 +128,7 @@ class CustomTextField extends StatelessWidget {
             ),
 
             filled: true,
-            fillColor: Colors.white,
+              fillColor: customColors.textFieldFillColor ,
           ),
         );
   }

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sizer_pro/sizer.dart';
 
+import '../app/appTheme/customColor.dart';
+
 class CustomSearchInput extends StatelessWidget {
   final ValueChanged<String> onChanged;
   final String hintText;
@@ -13,11 +15,12 @@ class CustomSearchInput extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final customColors = Theme.of(context).extension<CustomColors>();
     return TextField(
       onChanged: onChanged,
       decoration: InputDecoration(
         filled: true,
-        fillColor: Colors.white,
+        fillColor: customColors?.textFieldFillColor,
         prefixIcon:  Icon(Icons.search,color: Colors.grey.shade600,),
         hintText: hintText,
         enabledBorder: OutlineInputBorder(

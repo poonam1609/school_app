@@ -4,6 +4,8 @@ import 'package:school_app/HelperWidget/customSearch.dart';
 import 'package:school_app/HelperWidget/customText.dart';
 import 'package:sizer_pro/sizer.dart';
 
+import '../app/appTheme/customColor.dart';
+
 class AllItemView extends StatelessWidget {
   final bool useGrid;
 
@@ -27,6 +29,7 @@ class AllItemView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final customColors = Theme.of(context).extension<CustomColors>();
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -49,7 +52,7 @@ class AllItemView extends StatelessWidget {
                       width: 12.w,
                       height: 5.9.h,
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: customColors?.containerBackgroundColor,
                         border: Border.all(color:  Colors.grey.shade400),
                         borderRadius: BorderRadius.circular(8),
                       ),

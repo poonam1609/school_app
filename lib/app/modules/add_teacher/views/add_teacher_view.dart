@@ -9,6 +9,7 @@ import '../../../../HelperWidget/customButton.dart';
 import '../../../../HelperWidget/custom_AddPerson.dart';
 import '../../../../HelperWidget/customeTextfield.dart';
 import '../../../../HelperWidget/custome_dropDown.dart';
+import '../../../appTheme/customColor.dart';
 import '../controllers/add_teacher_controller.dart';
 
 class AddTeacherView extends StatelessWidget {
@@ -16,6 +17,7 @@ class AddTeacherView extends StatelessWidget {
   AddTeacherView({super.key});
   @override
   Widget build(BuildContext context) {
+    final customColors = Theme.of(context).extension<CustomColors>();
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -27,6 +29,7 @@ class AddTeacherView extends StatelessWidget {
                 child: Column(
                   children: [
                     CustomText(
+
                       text: 'New Employee Form',
                       fontWeight: FontWeight.bold,
                       fontSize: 6.5.sp,

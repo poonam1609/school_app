@@ -7,6 +7,7 @@ import 'package:school_app/app/routes/app_pages.dart';
 import 'package:sizer_pro/sizer.dart';
 
 import '../../../../HelperWidget/customText.dart';
+import '../../../appTheme/customColor.dart';
 import '../controllers/forgot_verification_controller.dart';
 
 class ForgotVerificationView extends GetView<ForgotVerificationController> {
@@ -15,6 +16,8 @@ class ForgotVerificationView extends GetView<ForgotVerificationController> {
   ForgotVerificationView({super.key});
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+    final customColors = Theme.of(context).extension<CustomColors>();
    return GetBuilder(
      init: forgotVerificationController,
      builder: (controller) {
@@ -23,12 +26,14 @@ class ForgotVerificationView extends GetView<ForgotVerificationController> {
           backgroundColor: Colors.transparent,
           leading: IconButton(onPressed: (){
             Get.back();
-          }, icon: Icon(Icons.arrow_circle_left_outlined)),
+          }, icon: Icon(Icons.arrow_circle_left_outlined,color:customColors?.primaryTextColor)),
         ),
         body: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
-              colors: [Color(0xFF1E88E5).withOpacity(0.5), Color(0xffF0F1F5)],
+              colors: isDarkMode
+                  ? [Colors.black.withOpacity(0.7), Colors.grey[900]!]
+                  : [Color(0xFF1E88E5).withOpacity(0.5), Color(0xffF0F1F5)],
               begin: Alignment.bottomCenter,
               end: Alignment.center,
             ),
@@ -39,7 +44,7 @@ class ForgotVerificationView extends GetView<ForgotVerificationController> {
               child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  CustomText(text: "Enter Code",fontSize:7.sp ,fontWeight: FontWeight.bold,color: Colors.grey.shade800,),
+                  CustomText(text: "Enter Code",fontSize:7.sp ,fontWeight: FontWeight.bold,color: customColors!.primaryTextColor,),
                   SizedBox(height: 3.h),
                   CustomText(text: "A reset code has been sent to ****91@gmail.com",fontSize:4.8.sp ,fontWeight: FontWeight.bold,color: Color(0xff989898),),
                   SizedBox(height: 0.5.h),

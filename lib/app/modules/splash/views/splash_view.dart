@@ -37,10 +37,9 @@ class SplashView extends GetView<SplashController> {
                         child: SvgPicture.asset("assets/image/splash_img.svg"),
                       ),
                       SizedBox(height: 3.h),
-                     CustomText(text: 'EduNest', fontWeight: FontWeight.bold, color: Color(0xff363939),
-                       fontSize:11.3.sp,),
-                      SizedBox(height: 1.5.h),
-                     CustomText(text: 'The Future of Learning, in Your Hands.',color: Color(0xff737373), fontSize: 5.6.sp ,fontWeight: FontWeight.bold)
+                    Text('EduNest',style: TextStyle( fontWeight: FontWeight.bold, color: Color(0xff363939),fontSize: 11.sp.isNaN ? 11.3 : 11.sp,),),
+                      SizedBox(height: 1.h),
+                      Text('The Future of Learning, in Your Hands.',style: TextStyle( color: Color(0xff737373), fontSize: 5.sp.isNaN ? 5.5 : 5.sp,fontWeight: FontWeight.bold),),
                     ],
                   ),
                 ),

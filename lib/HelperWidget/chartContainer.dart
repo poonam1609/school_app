@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer_pro/sizer.dart';
 
+import '../app/appTheme/customColor.dart';
+
 class ChartContainer extends StatelessWidget {
   final String title;
   final Widget child;
@@ -14,10 +16,12 @@ class ChartContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final customColors = Theme.of(context).extension<CustomColors>();
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: customColors?.containerBackgroundColor,
         borderRadius: BorderRadius.circular(1.h),
         boxShadow: [
           BoxShadow(
@@ -38,7 +42,7 @@ class ChartContainer extends StatelessWidget {
               style: TextStyle(
                 fontSize: 6.sp,
                 fontWeight: FontWeight.bold,
-                color: Colors.grey.shade800,
+                color:customColors?.primaryTextColor,
               ),
             ),
             SizedBox(height: 2.h),

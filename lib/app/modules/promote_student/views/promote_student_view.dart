@@ -5,6 +5,7 @@ import 'package:school_app/HelperWidget/customText.dart';
 import 'package:sizer_pro/sizer.dart';
 
 import '../../../../HelperWidget/custome_dropDown.dart';
+import '../../../appTheme/customColor.dart';
 import '../controllers/promote_student_controller.dart';
 
 class PromoteStudentView extends GetView<PromoteStudentController> {
@@ -13,6 +14,7 @@ class PromoteStudentView extends GetView<PromoteStudentController> {
 
   @override
   Widget build(BuildContext context) {
+    final customColors = Theme.of(context).extension<CustomColors>();
     return GetBuilder(
       init: promoteStudentController,
       builder: (controller) {
@@ -42,7 +44,7 @@ class PromoteStudentView extends GetView<PromoteStudentController> {
                       ),
                     ),
                     ElevatedButton.icon(
-                      icon: Icon(Icons.refresh,color: Colors.black,),
+                      icon: Icon(Icons.refresh,color:customColors?.primaryTextColor),
                       onPressed: () {
                         controller.reset();             // Reset dropdowns and state
                         controller.fetchStudents();     // Fetch students (will be none initially)
@@ -53,13 +55,12 @@ class PromoteStudentView extends GetView<PromoteStudentController> {
                           borderRadius: BorderRadius.circular(1.h),
                         ),
                       ),
-                      label: Text("Refresh",style:TextStyle(fontWeight: FontWeight.bold,color: Colors.black) ,),
+                      label: Text("Refresh",style:TextStyle(fontWeight: FontWeight.bold,color:customColors?.primaryTextColor) ,),
                     ),
                     SizedBox(height: 2.h),
                     Container(
-                
                       padding: EdgeInsets.symmetric(horizontal: 2.w, vertical: 1.h),
-                      color: Colors.white,
+                      color: customColors?.containerBackgroundColor,
                       child: Row(
                         children: [
                           Expanded(child: CustomText(text: "S.NO.", color: Colors.black,fontWeight: FontWeight.bold,)),
@@ -88,7 +89,7 @@ class PromoteStudentView extends GetView<PromoteStudentController> {
                             margin: EdgeInsets.symmetric(horizontal: 4.w, vertical: 1.h),
                             padding: EdgeInsets.all(2.h),
                             decoration: BoxDecoration(
-                              color: Colors.white,
+                              color: customColors?.containerBackgroundColor,
                               borderRadius: BorderRadius.circular(2.h),
                               boxShadow: [
                                 BoxShadow(
@@ -107,7 +108,7 @@ class PromoteStudentView extends GetView<PromoteStudentController> {
                             ),
                             child: Row(
                               children: [
-                                Text("${index + 1}", style: TextStyle(color: Colors.black)),
+                                Text("${index + 1}", style: TextStyle(color: customColors?.primaryTextColor)),
                                 SizedBox(width:3.w),
                                 CircleAvatar(
                                   radius: 25, // half of width/height
@@ -117,7 +118,7 @@ class PromoteStudentView extends GetView<PromoteStudentController> {
                                 SizedBox(width:3.w),
                                 Expanded(
                                   flex: 3,
-                                  child: Text(student.name, style: TextStyle(color: Colors.black)),
+                                  child: Text(student.name, style: TextStyle(color:customColors?.primaryTextColor)),
                                 ),
                                 Expanded(
                                   child: Obx(() => Checkbox(
@@ -141,7 +142,7 @@ class PromoteStudentView extends GetView<PromoteStudentController> {
                       padding: EdgeInsets.all(2.w),
                       decoration: BoxDecoration(
                         border: Border.all(color: Colors.grey),
-                        color: Colors.white,
+                        color: customColors?.containerBackgroundColor,
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Column(

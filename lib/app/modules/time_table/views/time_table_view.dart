@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:sizer_pro/sizer.dart';
 
 import '../../../../HelperWidget/custome_dropDown.dart';
+import '../../../appTheme/customColor.dart';
 import '../controllers/time_table_controller.dart';
 
 class TimeTableView extends GetView<TimeTableController> {
@@ -11,6 +12,8 @@ class TimeTableView extends GetView<TimeTableController> {
   TimeTableView({super.key});
   @override
   Widget build(BuildContext context) {
+    final customColors = Theme.of(context).extension<CustomColors>();
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Obx(
@@ -64,7 +67,7 @@ class TimeTableView extends GetView<TimeTableController> {
                       "Add attachment",
                       style: TextStyle(
                         fontSize: 5.5.sp,
-                        color: Colors.grey.shade800,
+                        color: customColors?.primaryTextColor,
                       ),
                     ),
                   ],
@@ -101,7 +104,7 @@ class TimeTableView extends GetView<TimeTableController> {
                     final item = controller.timetables[index];
                     return Container(
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color:customColors?.containerBackgroundColor,
                         borderRadius: BorderRadius.circular(2.w),
                         border: Border.all(color: Colors.blue),
                       ),

@@ -46,12 +46,16 @@ import '../modules/relieving_certificate/bindings/relieving_certificate_binding.
 import '../modules/relieving_certificate/views/relieving_certificate_view.dart';
 import '../modules/splash/bindings/splash_binding.dart';
 import '../modules/splash/views/splash_view.dart';
+import '../modules/student_attendence/bindings/student_attendence_binding.dart';
+import '../modules/student_attendence/views/student_attendence_view.dart';
 import '../modules/student_idCard/bindings/student_id_card_binding.dart';
 import '../modules/student_idCard/views/student_id_card_view.dart';
 import '../modules/student_info/bindings/student_info_binding.dart';
 import '../modules/student_info/views/student_info_view.dart';
 import '../modules/subject_with_class/bindings/subject_with_class_binding.dart';
 import '../modules/subject_with_class/views/subject_with_class_view.dart';
+import '../modules/teacher_attendence/bindings/teacher_attendence_binding.dart';
+import '../modules/teacher_attendence/views/teacher_attendence_view.dart';
 import '../modules/teacher_info/bindings/teacher_info_binding.dart';
 import '../modules/teacher_info/views/teacher_info_view.dart';
 import '../modules/time_table/bindings/time_table_binding.dart';
@@ -209,8 +213,18 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.TRANSFER_CERTIFICATE,
-      page: () =>  TransferCertificateView(),
+      page: () => TransferCertificateView(),
       binding: TransferCertificateBinding(),
+    ),
+    GetPage(
+      name: _Paths.STUDENT_ATTENDENCE,
+      page: () =>  StudentAttendenceView(),
+      binding: StudentAttendenceBinding(),
+    ),
+    GetPage(
+      name: _Paths.TEACHER_ATTENDENCE,
+      page: () =>  TeacherAttendenceView(),
+      binding: TeacherAttendenceBinding(),
     ),
   ];
 }

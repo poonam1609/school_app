@@ -7,6 +7,7 @@ import 'package:sizer_pro/sizer.dart';
 import '../../../../HelperWidget/customButton.dart';
 import '../../../../HelperWidget/customText.dart';
 import '../../../../HelperWidget/customeTextfield.dart';
+import '../../../appTheme/customColor.dart';
 import '../../../routes/app_pages.dart';
 import '../controllers/create_newpassword_controller.dart';
 
@@ -16,6 +17,9 @@ class CreateNewpasswordView extends GetView<CreateNewpasswordController> {
   CreateNewpasswordView({super.key});
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = Theme.of(context).brightness == Brightness.dark;
+
+    final customColors = Theme.of(context).extension<CustomColors>();
    return GetBuilder(
      init:createNewpasswordController ,
      builder: (controller) {
@@ -24,12 +28,14 @@ class CreateNewpasswordView extends GetView<CreateNewpasswordController> {
            backgroundColor: Colors.transparent,
            leading: IconButton(onPressed: (){
              Get.back();
-           }, icon: Icon(Icons.arrow_circle_left_outlined)),
+           }, icon: Icon(Icons.arrow_circle_left_outlined,color:customColors?.primaryTextColor)),
          ),
          body: Container(
            decoration: BoxDecoration(
              gradient: LinearGradient(
-               colors: [Color(0xFF1E88E5).withOpacity(0.5), Color(0xffF0F1F5)],
+               colors: isDarkMode
+                   ? [Colors.black.withOpacity(0.7), Colors.grey[900]!]
+                   : [Color(0xFF1E88E5).withOpacity(0.5), Color(0xffF0F1F5)],
                begin: Alignment.bottomCenter,
                end: Alignment.center,
              ),
@@ -42,11 +48,11 @@ class CreateNewpasswordView extends GetView<CreateNewpasswordController> {
                    child: Column(
                      crossAxisAlignment: CrossAxisAlignment.start,
                      children: [
-                       CustomText(text: "Create a new password",fontSize:7.sp ,fontWeight: FontWeight.bold,color: Colors.grey.shade800,),
+                       CustomText(text: "Create a new password",fontSize:7.sp ,fontWeight: FontWeight.bold,color: customColors!.primaryTextColor,),
                        SizedBox(height:3.h),
                        Row(
                          children: [
-                           CustomText(text: "Code Verified",fontWeight: FontWeight.bold,fontSize:6.sp,color: Colors.grey.shade800),
+                           CustomText(text: "Code Verified",fontWeight: FontWeight.bold,fontSize:6.sp,color:  customColors.primaryTextColor,),
                            SizedBox(width:1.w),
                            SvgPicture.asset('assets/icons/icon_verified.svg')
                          ],

@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:school_app/app/modules/teacher_info/controllers/teacher_info_controller.dart';
 import 'package:sizer_pro/sizer.dart';
+import '../app/appTheme/customColor.dart';
 import '../app/modules/edit_teacher/controllers/edit_teacher_controller.dart';
 import '../app/modules/home/controllers/home_controller.dart';
 
@@ -31,12 +32,13 @@ class EmployeeCard extends StatelessWidget {
   @override
   @override
   Widget build(BuildContext context) {
+    final customColors = Theme.of(context).extension<CustomColors>();
     return Container(
       margin: EdgeInsets.all(2.w),
       padding: EdgeInsets.symmetric(vertical: 1.h, horizontal: 0.6.w),
       decoration: BoxDecoration(
         color:
-         Colors.white,
+        customColors?.containerBackgroundColor,
         border: Border.all(
           color:
               gender.toLowerCase() == 'male'
@@ -203,9 +205,8 @@ class EmployeeCard extends StatelessWidget {
               // Role
               Text(
                 role,
-                style: TextStyle(color: Colors.grey[600], fontSize: 5.sp),
+                style: TextStyle(color: customColors?.secondaryTextColor, fontSize: 5.sp),
               ),
-
               // Gender
             ],
           ),

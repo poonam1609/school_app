@@ -7,6 +7,7 @@ import 'package:school_app/HelperWidget/customText.dart';
 import 'package:sizer_pro/sizer.dart';
 
 import '../../../../HelperWidget/custome_dropDown.dart';
+import '../../../appTheme/customColor.dart';
 import '../controllers/create_subject_controller.dart';
 
 class CreateSubjectView extends GetView<CreateSubjectController> {
@@ -16,6 +17,8 @@ class CreateSubjectView extends GetView<CreateSubjectController> {
   CreateSubjectView({super.key});
   @override
   Widget build(BuildContext context) {
+    final customColors = Theme.of(context).extension<CustomColors>();
+
     return GetBuilder(
       init: createSubjectController,
       builder: (controller) {
@@ -66,7 +69,7 @@ class CreateSubjectView extends GetView<CreateSubjectController> {
                           Text(
                             "Subject",
                             style: TextStyle(
-                              color: Colors.grey.shade700,
+                              color: customColors?.primaryTextColor,
                               fontSize: 5.5.sp,
                               fontWeight: FontWeight.bold,
                             ),
@@ -78,10 +81,10 @@ class CreateSubjectView extends GetView<CreateSubjectController> {
                               decoration: InputDecoration(
                                 hintText: 'Name',
                                 hintStyle: TextStyle(
-                                  color: Colors.grey.shade500,
+                                  color: customColors?.primaryTextColor,
                                 ),
                                 filled: true,
-                                fillColor: Colors.white,
+                                fillColor: customColors?.textFieldFillColor,
                                 contentPadding: EdgeInsets.symmetric(
                                   horizontal: 3.w,
                                   vertical: 0,
@@ -118,7 +121,7 @@ class CreateSubjectView extends GetView<CreateSubjectController> {
                           Text(
                             "Marks",
                             style: TextStyle(
-                              color: Colors.grey.shade600,
+                              color: customColors?.primaryTextColor,
                               fontSize: 5.5.sp,
                               fontWeight: FontWeight.bold,
                             ),
@@ -129,7 +132,7 @@ class CreateSubjectView extends GetView<CreateSubjectController> {
                             child: Container(
                               padding: EdgeInsets.symmetric(horizontal: 3.w),
                               decoration: BoxDecoration(
-                                color: Colors.white,
+                                color: customColors?.textFieldFillColor,
                                 borderRadius: BorderRadius.circular(1.h),
                                 border: Border.all(color: Colors.grey.shade400),
                               ),
@@ -138,7 +141,7 @@ class CreateSubjectView extends GetView<CreateSubjectController> {
                                   hint: Text(
                                     "Total Exam",
                                     style: TextStyle(
-                                      color: Colors.grey.shade600,
+                                      color: customColors?.primaryTextColor,
                                     ),
                                   ),
                                   value: null,
@@ -173,19 +176,19 @@ class CreateSubjectView extends GetView<CreateSubjectController> {
                         onPressed: () {},
                         icon: Icon(
                           Icons.remove_circle_outline,
-                          color: Colors.black,
+                          color: customColors?.primaryTextColor,
                           size: 8.sp,
                         ),
                         label: Text(
                           "Remove field",
                           style: TextStyle(
-                            color: Colors.black,
+                            color: customColors?.primaryTextColor,
                             fontSize: 6.sp,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                         style: OutlinedButton.styleFrom(
-                          backgroundColor: Colors.white,
+                          backgroundColor: customColors?.containerBackgroundColor,
                           side: BorderSide(color: Colors.grey.shade400),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(1.h),

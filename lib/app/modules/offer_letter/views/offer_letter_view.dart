@@ -6,6 +6,7 @@ import 'package:school_app/HelperWidget/customSearch.dart';
 import 'package:school_app/HelperWidget/customText.dart';
 import 'package:sizer_pro/sizer.dart';
 
+import '../../../appTheme/customColor.dart';
 import '../controllers/offer_letter_controller.dart';
 
 class OfferLetterView extends GetView<OfferLetterController> {
@@ -15,6 +16,7 @@ class OfferLetterView extends GetView<OfferLetterController> {
   OfferLetterView({super.key});
   @override
   Widget build(BuildContext context) {
+    final customColors = Theme.of(context).extension<CustomColors>();
     return GetBuilder(
       init: offerLetterController,
       builder: (controller) {
@@ -45,7 +47,7 @@ class OfferLetterView extends GetView<OfferLetterController> {
                           margin: EdgeInsets.symmetric(horizontal: 4.w, vertical: 1.h),
                           padding: EdgeInsets.all(2.h),
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: customColors?.containerBackgroundColor,
                             borderRadius: BorderRadius.circular(2.h),
                             border: Border.all(
                               color: employee.isFemale
@@ -75,7 +77,7 @@ class OfferLetterView extends GetView<OfferLetterController> {
                                           // View profile action
                                         },
                                         icon: Icon(Icons.person_outline),
-                                        color: Colors.black,
+                                        color: customColors?.primaryTextColor,
                                         iconSize: 9.sp,
                                         padding: EdgeInsets.zero,
                                         constraints: BoxConstraints(), // removes default constraints
@@ -83,7 +85,7 @@ class OfferLetterView extends GetView<OfferLetterController> {
                                       IconButton(
                                         onPressed: () => offerLetterController.printOfferLetter(employee),
                                         icon: Icon(Icons.print_outlined),
-                                        color: Colors.black,
+                                        color: customColors?.primaryTextColor,
                                         iconSize: 9.sp,
                                         padding: EdgeInsets.zero,
                                         constraints: BoxConstraints(),

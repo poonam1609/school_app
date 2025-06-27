@@ -2,20 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:school_app/HelperWidget/customText.dart';
 import 'package:sizer_pro/sizer.dart';
+import '../../../appTheme/customColor.dart';
 import '../controllers/all_classes_controller.dart';
 
 class AllClassesView extends StatelessWidget {
   final AllClassesController controller = Get.put(AllClassesController());
   @override
   Widget build(BuildContext context) {
+    final customColors = Theme.of(context).extension<CustomColors>();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         centerTitle:true,
           title: CustomText(text: 'All Classes', fontWeight: FontWeight.bold,
-            fontSize: 8.sp,),
+            fontSize: 8.sp,color: customColors!.primaryTextColor,),
       ),
-      backgroundColor: Color(0xffF5F6FA),
+      backgroundColor:customColors.scaffoldBackgroundColor,
       body: Obx(() => ListView.builder(
         padding: EdgeInsets.all(4.w),
         itemCount: controller.classList.length,
@@ -30,7 +32,7 @@ class AllClassesView extends StatelessWidget {
             child: Container(
               padding: EdgeInsets.all(3.w),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: customColors.containerBackgroundColor,
                 borderRadius: BorderRadius.circular(1.5.h),
                 boxShadow: [
                   BoxShadow(
@@ -50,14 +52,14 @@ class AllClassesView extends StatelessWidget {
                       children: [
                         Text(
                           data.className,
-                          style: TextStyle(color: Colors.grey.shade600,
+                          style: TextStyle(color:customColors.primaryTextColor,
                               fontSize: 5.5.sp, fontWeight: FontWeight.w700),
                         ),
                         Row(
                           children: [
-                            Icon(Icons.edit_outlined, size: 8.sp,color: Colors.grey.shade600,),
+                            Icon(Icons.edit_outlined, size: 8.sp,color:customColors.primaryTextColor),
                             SizedBox(width: 2.w),
-                            Icon(Icons.delete_outline, size: 7.sp,color: Colors.grey.shade600),
+                            Icon(Icons.delete_outline, size: 7.sp,color:customColors.primaryTextColor),
                           ],
                         )
                       ],
@@ -87,6 +89,7 @@ class AllClassesView extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         buildStudentStat(
+                          context: context,
                           percentage: boysPercentage,
                           imagePath: 'assets/image/boy_img.png',
                           label: 'Boys',
@@ -95,6 +98,7 @@ class AllClassesView extends StatelessWidget {
                           gender: 'male',
                         ),
                         buildStudentStat(
+                          context: context,
                           percentage: girlsPercentage,
                           imagePath: 'assets/image/girl_img.png',
                           label: 'Girls',
@@ -114,6 +118,7 @@ class AllClassesView extends StatelessWidget {
     );
   }
   Widget buildStudentStat({
+    required BuildContext context,
     required double percentage,
     required String imagePath,
     required String label,
@@ -121,6 +126,7 @@ class AllClassesView extends StatelessWidget {
     required Color progressColor,
     required String gender,
   }) {
+    final customColors = Theme.of(context).extension<CustomColors>();
     final Color arcColor = gender.toLowerCase() == 'male'
         ? Colors.blue
         : Colors.pinkAccent;
@@ -164,11 +170,11 @@ class AllClassesView extends StatelessWidget {
     Text(
     "${percentage.toStringAsFixed(0)}%",
     style: TextStyle(
-    fontWeight: FontWeight.bold, fontSize: 8.sp, color: Colors.grey.shade700 ,),
+    fontWeight: FontWeight.bold, fontSize: 8.sp, color: customColors?.primaryTextColor,),
     ),
         Text(
           "$label: $count",
-          style: TextStyle(fontSize: 6.sp, fontWeight: FontWeight.bold, color: Colors.grey.shade700),
+          style: TextStyle(fontSize: 6.sp, fontWeight: FontWeight.bold, color: customColors?.primaryTextColor),
         ),
       ],
     );

@@ -7,6 +7,7 @@ import 'package:sizer_pro/sizer.dart';
 import '../../../../HelperWidget/customSearch.dart';
 import '../../../../HelperWidget/customText.dart';
 import '../../../../HelperWidget/custome_dropDown.dart';
+import '../../../appTheme/customColor.dart';
 import '../controllers/relieving_certificate_controller.dart';
 
 class RelievingCertificateView extends GetView<RelievingCertificateController> {
@@ -16,6 +17,8 @@ class RelievingCertificateView extends GetView<RelievingCertificateController> {
   RelievingCertificateView({super.key});
   @override
   Widget build(BuildContext context) {
+    final customColors = Theme.of(context).extension<CustomColors>();
+
     return GetBuilder(
       init: relievingCertificateController,
       builder: (controller) {
@@ -45,7 +48,7 @@ class RelievingCertificateView extends GetView<RelievingCertificateController> {
                         width: 12.w,
                         height: 5.9.h,
                         decoration: BoxDecoration(
-                          color: Colors.white,
+                          color: customColors?.containerBackgroundColor,
                           border: Border.all(color: Colors.grey.shade400),
                           borderRadius: BorderRadius.circular(8),
                         ),
@@ -92,7 +95,7 @@ class RelievingCertificateView extends GetView<RelievingCertificateController> {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(3.w),
                           border: Border.all(color: genderColor, width: 0.5),
-                          color: Colors.white,
+                          color: customColors?.containerBackgroundColor,
                         ),
                         padding: EdgeInsets.all(2.w),
                         child: Row(
@@ -118,7 +121,7 @@ class RelievingCertificateView extends GetView<RelievingCertificateController> {
                                     style: TextStyle(
                                       fontSize: 6.7.sp,
                                       fontWeight: FontWeight.bold,
-                                      color: Colors.grey.shade700,
+                                      color:customColors?.primaryTextColor,
                                     ),
                                   ),
                                   SizedBox(height: 0.5.h),
@@ -126,7 +129,7 @@ class RelievingCertificateView extends GetView<RelievingCertificateController> {
                                     'Teacher: ${teacher['teacher']}',
                                     style: TextStyle(
                                       fontSize: 5.8.sp,
-                                      color: Colors.grey.shade600,
+                                      color:customColors?.primaryTextColor,
                                     ),
                                   ),
                                 ],

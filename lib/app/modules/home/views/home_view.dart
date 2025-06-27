@@ -14,6 +14,7 @@ import '../../../../HelperWidget/customDrawer.dart';
 import '../../../../HelperWidget/dashBoardGrid.dart';
 import '../../../../HelperWidget/feeCollectionChart.dart';
 import '../../../../HelperWidget/newAdmissionChart.dart';
+import '../../../appTheme/customColor.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
@@ -21,6 +22,7 @@ class HomeView extends GetView<HomeController> {
   HomeView({super.key});
   @override
   Widget build(BuildContext context) {
+    final customColors = Theme.of(context).extension<CustomColors>();
     return GetBuilder(
       init: homeController,
       builder: (controller) {
@@ -49,7 +51,7 @@ class HomeView extends GetView<HomeController> {
                 ),
               ],
               leading: IconButton(
-                icon: Icon(Icons.menu, color: Colors.black),
+                icon: Icon(Icons.menu, color:customColors?.primaryTextColor),
                 onPressed: () {
                   controller.scaffoldKey.currentState?.openDrawer();
                 },
@@ -71,7 +73,7 @@ class HomeView extends GetView<HomeController> {
                           SizedBox(height: 2.h),
                           Text(
                             "Good Morning!",
-                            style: TextStyle(color: Colors.grey.shade700),
+                            style: TextStyle(color: customColors?.secondaryTextColor),
                           ),
                           Text(
                             "David",

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:sizer_pro/sizer.dart';
 
+import '../app/appTheme/customColor.dart';
+
 class HomeworkCard extends StatelessWidget {
   final String className;
   final String date;
@@ -18,11 +20,13 @@ class HomeworkCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final customColors = Theme.of(context).extension<CustomColors>();
+
     return Container(
       margin: EdgeInsets.only(bottom: 2.h),
       padding: EdgeInsets.all(3.w),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: customColors?.containerBackgroundColor,
         borderRadius: BorderRadius.circular(2.w),
         border: Border.all(color: Colors.grey.shade300),
         boxShadow: [

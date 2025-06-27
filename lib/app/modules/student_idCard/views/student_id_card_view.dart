@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:sizer_pro/sizer.dart';
 
 import '../../../../HelperWidget/customText.dart';
+import '../../../appTheme/customColor.dart';
 import '../controllers/student_id_card_controller.dart';
 
 class StudentIdCardView extends GetView<StudentIdCardController> {
@@ -13,6 +14,7 @@ class StudentIdCardView extends GetView<StudentIdCardController> {
   StudentIdCardView({super.key});
   @override
   Widget build(BuildContext context) {
+    final customColors = Theme.of(context).extension<CustomColors>();
     return GetBuilder(
       init: studentIdCardController,
       builder: (controller) {
@@ -47,7 +49,7 @@ class StudentIdCardView extends GetView<StudentIdCardController> {
                         ),),
                         SizedBox(height: 1.h,),
                         Container(
-                          color: Colors.white,
+                          color:customColors?.containerBackgroundColor,
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             children: [
@@ -72,7 +74,7 @@ class StudentIdCardView extends GetView<StudentIdCardController> {
                                 'Batch 2025-26',
                                 style: TextStyle(
                                   fontSize: 5.7.sp,
-                                  color: Colors.grey[700],
+                                  color: customColors!.primaryTextColor,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -82,7 +84,7 @@ class StudentIdCardView extends GetView<StudentIdCardController> {
                                 backgroundColor: Colors.blue.shade100,
                                 backgroundImage: AssetImage(
                                   'assets/image/id_card_image.png',
-                                ), // replace with your asset
+                                ),
                               ),
                               SizedBox(height: 2.h,),
                               Text(
@@ -98,12 +100,13 @@ class StudentIdCardView extends GetView<StudentIdCardController> {
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    detailLine('Grade :', student['class_standard'] ?? ''),
-                                    detailLine('DoB   :', 'Jan 21, 2000'),
-                                    detailLine('Contact No. :', student['mobile'] ?? ''),
+
+                                    detailLine('Grade :', student['class_standard'] ?? '',context),
+                                    detailLine('DoB   :', 'Jan 21, 2000',context),
+                                    detailLine('Contact No. :', student['mobile'] ?? '',context),
                                     detailLine(
                                       'Add.:',
-                                      'Shanti Nagar, New Palasia,\nIndore (M.P.) - 462010',
+                                      'Shanti Nagar, New Palasia,\nIndore (M.P.) - 462010',context,
                                     ),
                                   ],
                                 ),
@@ -138,12 +141,13 @@ class StudentIdCardView extends GetView<StudentIdCardController> {
     );
   }
 }
-Widget detailLine(String label, String value) {
+Widget detailLine(String label, String value,BuildContext context) {
+  final customColors = Theme.of(context).extension<CustomColors>();
   return Padding(
     padding: const EdgeInsets.symmetric(vertical: 2),
     child: RichText(
       text: TextSpan(
-        style: TextStyle(color: Colors.black87, fontSize: 5.6.sp),
+        style: TextStyle(color: customColors!.primaryTextColor, fontSize: 5.6.sp),
         children: [
           TextSpan(
             text: '$label ',

@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:sizer_pro/sizer.dart';
 
+import '../app/appTheme/customColor.dart';
 import '../app/modules/home/controllers/home_controller.dart';
 import 'chartContainer.dart';
 
@@ -13,6 +14,7 @@ class AccountOverviewChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final customColors = Theme.of(context).extension<CustomColors>();
     return ChartContainer(
       title: 'Account Overview',
 
@@ -55,7 +57,7 @@ class AccountOverviewChart extends StatelessWidget {
                           '₹${(value / 1000).toInt()}K',
                           style: TextStyle(
                             fontSize: 5.sp,
-                            color: Colors.grey[600],
+                            color: customColors?.primaryTextColor,
                           ),
                         );
                       },
@@ -75,7 +77,7 @@ class AccountOverviewChart extends StatelessWidget {
                               controller.accountData[value.toInt()].month,
                               style: TextStyle(
                                 fontSize: 5.sp,
-                                color: Colors.grey[600],
+                                color:  customColors?.primaryTextColor,
                                 fontWeight: FontWeight.w500,
                               ),
                             ),

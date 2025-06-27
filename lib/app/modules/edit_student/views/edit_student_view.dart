@@ -7,12 +7,15 @@ import '../../../../HelperWidget/customButton.dart';
 import '../../../../HelperWidget/customText.dart';
 import '../../../../HelperWidget/customeTextfield.dart';
 import '../../../../HelperWidget/custome_dropDown.dart';
+import '../../../appTheme/customColor.dart';
 import '../controllers/edit_student_controller.dart';
 
 class EditStudentView extends GetView<EditStudentController> {
   const EditStudentView({super.key});
   @override
   Widget build(BuildContext context) {
+    final customColors = Theme.of(context).extension<CustomColors>();
+
     final controller = Get.find<EditStudentController>();
     return Scaffold(
       body: SafeArea(
@@ -631,7 +634,7 @@ class EditStudentView extends GetView<EditStudentController> {
                       decoration: BoxDecoration(
                         border: Border.all(color: Colors.grey),
                         borderRadius: BorderRadius.circular(8),
-                        color: Colors.white,
+                        color: customColors?.textFieldFillColor,
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -641,7 +644,7 @@ class EditStudentView extends GetView<EditStudentController> {
                             style: TextStyle(
                               fontSize: 14,
                               fontWeight: FontWeight.w500,
-                              color: Colors.grey[700],
+                              color: customColors!.primaryTextColor,
                             ),
                           ),
                           Obx(
@@ -680,6 +683,7 @@ class EditStudentView extends GetView<EditStudentController> {
 
                     SizedBox(height: 3.h),
                     CustomText(
+
                       text: 'Physical Disability',
                       fontSize: 5.sp,
                       fontWeight: FontWeight.bold,
@@ -690,7 +694,7 @@ class EditStudentView extends GetView<EditStudentController> {
                       decoration: BoxDecoration(
                         border: Border.all(color: Colors.grey),
                         borderRadius: BorderRadius.circular(8),
-                        color: Colors.white,
+                        color: customColors?.textFieldFillColor,
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -700,7 +704,7 @@ class EditStudentView extends GetView<EditStudentController> {
                             style: TextStyle(
                               fontSize: 14,
                               fontWeight: FontWeight.w500,
-                              color: Colors.grey[700],
+                              color: customColors.primaryTextColor,
                             ),
                           ),
                           Obx(

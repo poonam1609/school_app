@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../app/appTheme/customColor.dart';
+
 class CustomText extends StatelessWidget {
   final String text;
   final double fontSize;
@@ -22,14 +24,14 @@ class CustomText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final customColors = Theme.of(context).extension<CustomColors>();
     return Text(text,
       textAlign: textAlign,
       maxLines: maxLines,
       overflow: overflow,
       style: TextStyle(
-
         fontSize: (fontSize.isNaN || fontSize <= 0) ? 14.0 : fontSize,
-        color: color,
+        color:  customColors?.primaryTextColor??color,
         fontWeight: fontWeight,
       ),
     );

@@ -6,6 +6,7 @@ import 'package:sizer_pro/sizer.dart';
 import '../../../../HelperWidget/customSearch.dart';
 import '../../../../HelperWidget/customText.dart';
 import '../../../../HelperWidget/custome_dropDown.dart';
+import '../../../appTheme/customColor.dart';
 import '../controllers/character_certificate_controller.dart';
 
 class CharacterCertificateView extends GetView<CharacterCertificateController> {
@@ -17,6 +18,8 @@ class CharacterCertificateView extends GetView<CharacterCertificateController> {
 
   @override
   Widget build(BuildContext context) {
+    final customColors = Theme.of(context).extension<CustomColors>();
+
     return GetBuilder<CharacterCertificateController>(
       builder: (controller) {
         return Scaffold(
@@ -46,7 +49,7 @@ class CharacterCertificateView extends GetView<CharacterCertificateController> {
                           width: 12.w,
                           height: 5.9.h,
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: customColors?.containerBackgroundColor,
                             border: Border.all(color: Colors.grey.shade400),
                             borderRadius: BorderRadius.circular(8),
                           ),
@@ -71,6 +74,7 @@ class CharacterCertificateView extends GetView<CharacterCertificateController> {
                     () => Column(
                       children: [
                         _customRadioTile(
+                          context: context,
                           label: "Student",
                           value: "Student",
                           groupValue: controller.selectedType.value,
@@ -79,6 +83,7 @@ class CharacterCertificateView extends GetView<CharacterCertificateController> {
                         ),
                         SizedBox(height: 1.5.h),
                         _customRadioTile(
+                          context: context,
                           label: "Employee",
                           value: "Employee",
                           groupValue:
@@ -149,6 +154,7 @@ class CharacterCertificateView extends GetView<CharacterCertificateController> {
                                       ? Colors.blue
                                       : Colors.pinkAccent;
                               return _userTile(
+                                context: context,
                                 image: student['image']!,
                                 name: student['name']!,
                                 subText: 'Class: ${student['class']}',
@@ -215,6 +221,7 @@ class CharacterCertificateView extends GetView<CharacterCertificateController> {
                                       ? Colors.blue
                                       : Colors.pinkAccent;
                               return _userTile(
+                                context: context,
                                 image: teacher['image']!,
                                 name: teacher['name']!,
                                 subText: 'Department: ${teacher['teacher']}',
@@ -236,16 +243,20 @@ class CharacterCertificateView extends GetView<CharacterCertificateController> {
   }
 
   Widget _userTile({
+
     required String image,
     required String name,
     required String subText,
     required Color borderColor,
+    required BuildContext context
   }) {
+    final customColors = Theme.of(context).extension<CustomColors>();
+
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(3.w),
         border: Border.all(color: borderColor, width: 0.5),
-        color: Colors.white,
+        color:customColors?.containerBackgroundColor ,
       ),
       padding: EdgeInsets.all(2.w),
       child: Row(
@@ -269,7 +280,7 @@ class CharacterCertificateView extends GetView<CharacterCertificateController> {
                   style: TextStyle(
                     fontSize: 6.7.sp,
                     fontWeight: FontWeight.bold,
-                    color: Colors.grey.shade600,
+                    color: customColors?.primaryTextColor,
                   ),
                 ),
                 SizedBox(height: 0.5.h),
@@ -277,7 +288,7 @@ class CharacterCertificateView extends GetView<CharacterCertificateController> {
                   subText,
                   style: TextStyle(
                     fontSize: 5.8.sp,
-                    color: Colors.grey.shade600,
+                    color: customColors?.primaryTextColor,
                   ),
                 ),
               ],
@@ -293,11 +304,14 @@ Widget _customRadioTile({
   required String value,
   required String groupValue,
   required ValueChanged<String?> onChanged,
+  required BuildContext context
 }) {
+  final customColors = Theme.of(context).extension<CustomColors>();
+
   return Container(
     padding: EdgeInsets.symmetric(horizontal: 4.w),
     decoration: BoxDecoration(
-      color: Colors.white,
+      color: customColors?.textFieldFillColor,
       borderRadius: BorderRadius.circular(2.w),
     ),
     child: Row(
@@ -305,14 +319,14 @@ Widget _customRadioTile({
         Expanded(
           child: Text(
             label,
-            style: TextStyle(fontSize: 6.sp, color: Colors.grey.shade600),
+            style: TextStyle(fontSize: 6.sp, color: customColors?.primaryTextColor),
           ),
         ),
         Radio<String>(
           value: value,
           groupValue: groupValue,
           onChanged: onChanged,
-          activeColor: Colors.black,
+          activeColor:customColors?.scaffoldBackgroundColor,
         ),
       ],
     ),

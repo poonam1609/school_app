@@ -6,6 +6,7 @@ import 'package:printing/printing.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import '../../../../HelperWidget/customText.dart';
+import '../../../appTheme/customColor.dart';
 import '../../home/controllers/home_controller.dart';
 import '../controllers/teacher_info_controller.dart';
 
@@ -13,6 +14,8 @@ class TeacherInfoView extends GetView<TeacherInfoController> {
   const TeacherInfoView({super.key});
   @override
   Widget build(BuildContext context) {
+    final customColors = Theme.of(context).extension<CustomColors>();
+
     final homeController = Get.find<HomeController>();
     final controller = Get.find<TeacherInfoController>();
     return WillPopScope(
@@ -58,7 +61,7 @@ class TeacherInfoView extends GetView<TeacherInfoController> {
                    style: TextStyle(
                      fontSize: 8.sp,
                      fontWeight: FontWeight.bold,
-                     color: Colors.black,
+                     color: customColors?.primaryTextColor,
                    ),
                  ),
                  SizedBox(height:1.h),
@@ -68,7 +71,7 @@ class TeacherInfoView extends GetView<TeacherInfoController> {
                    style:
                    TextStyle(
                      fontSize: 6.sp,
-                     color: Colors.black,
+                     color: customColors?.primaryTextColor,
                      fontWeight: FontWeight.w500,
                    ),
                  ),
@@ -169,6 +172,8 @@ class TeacherInfoView extends GetView<TeacherInfoController> {
   }
 
   Widget _buildInfoItem(BuildContext context,IconData icon, String label, String value) {
+    final customColors = Theme.of(context).extension<CustomColors>();
+
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: Row(
@@ -183,9 +188,9 @@ class TeacherInfoView extends GetView<TeacherInfoController> {
             width: 110,
             child: Text(
               '$label:',
-              style: const TextStyle(
+              style:  TextStyle(
                 fontWeight: FontWeight.w600,
-                color: Colors.black87,
+                color:customColors?.primaryTextColor ,
               ),
             ),
           ),
@@ -193,8 +198,8 @@ class TeacherInfoView extends GetView<TeacherInfoController> {
           Expanded(
             child: Text(
               value,
-              style: const TextStyle(
-                color: Colors.black54,
+              style:  TextStyle(
+                color: customColors?.primaryTextColor,
                 fontSize: 16,
               ),
             ),
