@@ -11,6 +11,7 @@ import 'package:school_app/app/modules/edit_student/views/edit_student_view.dart
 import 'package:school_app/app/modules/edit_teacher/views/edit_teacher_view.dart';
 import 'package:school_app/app/modules/home/views/home_view.dart';
 import 'package:school_app/app/modules/home_work/views/home_work_view.dart';
+import 'package:school_app/app/modules/messages/views/messages_view.dart';
 import 'package:school_app/app/modules/new_classes/views/new_classes_view.dart';
 import 'package:school_app/app/modules/offer_letter/views/offer_letter_view.dart';
 import 'package:school_app/app/modules/promote_student/views/promote_student_view.dart';
@@ -48,5 +49,6 @@ final Map<int, Widget> pageMap = {
   703: CharacterCertificateView(),
   704:TransferCertificateView(),
   801:StudentAttendenceView(),
-  802:TeacherAttendenceView()
+  802:TeacherAttendenceView(),
+    9:MessagesView(),
 };

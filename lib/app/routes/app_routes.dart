@@ -34,6 +34,7 @@ abstract class Routes {
   static const TRANSFER_CERTIFICATE = _Paths.TRANSFER_CERTIFICATE;
   static const STUDENT_ATTENDENCE = _Paths.STUDENT_ATTENDENCE;
   static const TEACHER_ATTENDENCE = _Paths.TEACHER_ATTENDENCE;
+  static const MESSAGES = _Paths.MESSAGES;
 }
 
 abstract class _Paths {
@@ -69,4 +70,5 @@ abstract class _Paths {
   static const TRANSFER_CERTIFICATE = '/transfer-certificate';
   static const STUDENT_ATTENDENCE = '/student-attendence';
   static const TEACHER_ATTENDENCE = '/teacher-attendence';
+  static const MESSAGES = '/messages';
 }

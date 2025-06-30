@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-class CharacterCertificateController extends GetxController {
+class MessagesController extends GetxController {
   var selectedType = 'Student'.obs;
 
   var selectedClass = 'Select Class'.obs;

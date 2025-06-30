@@ -36,9 +36,7 @@ class CreateSubjectView extends GetView<CreateSubjectController> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 2.5.h),
-                CustomSearchInput(onChanged: (value) {}),
-                SizedBox(height: 5.h),
+                SizedBox(height: 3.h),
                 CustomText(
                   text: 'Class',
                   color: Colors.grey.shade600,

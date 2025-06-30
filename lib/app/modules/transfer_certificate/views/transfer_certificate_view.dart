@@ -35,31 +35,7 @@ class TransferCertificateView extends GetView<TransferCertificateController> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height:2.h),
-                Row(
-                  children: [
-                    Expanded(
-                      child: CustomSearchInput(onChanged: (value) {
-                      },),
-                    ),
-                    SizedBox(width: 1.w),
-                    InkWell(
-                      onTap: () {},
-                      child: Container(
-                          width: 12.w,
-                          height: 5.9.h,
-                          decoration: BoxDecoration(
-                            color: customColors?.containerBackgroundColor,
-                            border: Border.all(color:  Colors.grey.shade400),
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          child:
-                          Icon(Icons.person_add_alt,size: 10.sp,)
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 5.h),
+                SizedBox(height: 3.h),
                 CustomText(
                   text: 'Class',
                   color: Colors.grey.shade600,

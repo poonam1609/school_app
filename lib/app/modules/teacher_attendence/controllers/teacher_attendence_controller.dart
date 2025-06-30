@@ -1,23 +1,13 @@
 import 'package:get/get.dart';
 
 class TeacherAttendenceController extends GetxController {
-  //TODO: Implement TeacherAttendenceController
-
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
-  }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
+  final List<Map<String, dynamic>> teachers = [
+    {'name': 'John Peterson', 'role': 'Principal'},
+    {'name': 'Kush Shah', 'role': 'Principal'},
+    {'name': 'Kel Willian', 'role': 'Teacher'},
+    {'name': 'Kirti Pal', 'role': 'Principal'},
+    {'name': 'Nayna Patil', 'role': 'Teacher'},
+  ];
 }
+
+

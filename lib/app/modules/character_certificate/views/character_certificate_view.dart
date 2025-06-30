@@ -38,27 +38,7 @@ class CharacterCertificateView extends GetView<CharacterCertificateController> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(height: 2.h),
-                  Row(
-                    children: [
-                      Expanded(child: CustomSearchInput(onChanged: (value) {})),
-                      SizedBox(width: 1.w),
-                      InkWell(
-                        onTap: () {},
-                        child: Container(
-                          width: 12.w,
-                          height: 5.9.h,
-                          decoration: BoxDecoration(
-                            color: customColors?.containerBackgroundColor,
-                            border: Border.all(color: Colors.grey.shade400),
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                          child: Icon(Icons.person_add_alt, size: 10.sp),
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 4.h),
+                  SizedBox(height: 3.h),
 
                   // Radio selection
                   Text(
@@ -326,7 +306,7 @@ Widget _customRadioTile({
           value: value,
           groupValue: groupValue,
           onChanged: onChanged,
-          activeColor:customColors?.scaffoldBackgroundColor,
+          activeColor:customColors?.primaryTextColor,
         ),
       ],
     ),

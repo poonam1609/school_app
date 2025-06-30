@@ -32,6 +32,8 @@ import '../modules/home_work/bindings/home_work_binding.dart';
 import '../modules/home_work/views/home_work_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
+import '../modules/messages/bindings/messages_binding.dart';
+import '../modules/messages/views/messages_view.dart';
 import '../modules/new_classes/bindings/new_classes_binding.dart';
 import '../modules/new_classes/views/new_classes_view.dart';
 import '../modules/offer_letter/bindings/offer_letter_binding.dart';
@@ -218,13 +220,18 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.STUDENT_ATTENDENCE,
-      page: () =>  StudentAttendenceView(),
+      page: () => StudentAttendenceView(),
       binding: StudentAttendenceBinding(),
     ),
     GetPage(
       name: _Paths.TEACHER_ATTENDENCE,
-      page: () =>  TeacherAttendenceView(),
+      page: () => TeacherAttendenceView(),
       binding: TeacherAttendenceBinding(),
+    ),
+    GetPage(
+      name: _Paths.MESSAGES,
+      page: () => MessagesView(),
+      binding: MessagesBinding(),
     ),
   ];
 }

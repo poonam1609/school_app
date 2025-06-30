@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:school_app/HelperWidget/customButton.dart';
 import 'package:sizer_pro/sizer.dart';
 
 import '../../../../HelperWidget/customSearch.dart';
@@ -10,9 +11,7 @@ import '../../../appTheme/customColor.dart';
 import '../controllers/student_attendence_controller.dart';
 
 class StudentAttendenceView extends GetView<StudentAttendenceController> {
-  StudentAttendenceController studentAttendenceController = Get.put(
-    StudentAttendenceController(),
-  );
+  StudentAttendenceController studentAttendenceController = Get.put(StudentAttendenceController());
   StudentAttendenceView({super.key});
   @override
   Widget build(BuildContext context) {
@@ -23,40 +22,20 @@ class StudentAttendenceView extends GetView<StudentAttendenceController> {
       builder: (controller) {
         return Scaffold(
           body: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 4.w),
+            padding: EdgeInsets.symmetric(horizontal: 5.w),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(height: 2.h),
                 Center(
                   child: CustomText(
-                    text: 'Transfer Certificate',
+                    text: 'Student Attendance',
                     color: Colors.black,
                     fontSize: 9.sp,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 2.h),
-                Row(
-                  children: [
-                    Expanded(child: CustomSearchInput(onChanged: (value) {})),
-                    SizedBox(width: 1.w),
-                    InkWell(
-                      onTap: () {},
-                      child: Container(
-                        width: 12.w,
-                        height: 5.9.h,
-                        decoration: BoxDecoration(
-                          color: customColors?.containerBackgroundColor,
-                          border: Border.all(color: Colors.grey.shade400),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: Icon(Icons.person_add_alt, size: 10.sp),
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 5.h),
+                SizedBox(height: 3.h),
                 CustomText(
                   text: 'Class',
                   color: Colors.grey.shade600,
@@ -76,14 +55,19 @@ class StudentAttendenceView extends GetView<StudentAttendenceController> {
                 ),
                 SizedBox(height: 2.h),
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 2.w, vertical: 1.h),
-                  color: customColors?.containerBackgroundColor,
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 3.w,
+                    vertical: 1.h,
+                  ),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(1.w),
+                    color: Colors.grey.shade400,
+                  ),
                   child: Row(
                     children: [
                       Expanded(
                         child: CustomText(
-                          text: "S.NO.",
-                          color: Colors.black,
+                          text: "ID",
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -91,14 +75,12 @@ class StudentAttendenceView extends GetView<StudentAttendenceController> {
                         flex: 3,
                         child: CustomText(
                           text: "Student Name",
-                          color: Colors.black,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       Expanded(
                         child: CustomText(
-                          text: "Select",
-                          color: Colors.black,
+                          text: "Status",
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -116,40 +98,44 @@ class StudentAttendenceView extends GetView<StudentAttendenceController> {
                       return Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(3.w),
-                          border: Border.all(color:Colors.blue, width: 0.5),
+                          border: Border.all(color: Colors.blue, width: 0.5),
                           color: customColors?.containerBackgroundColor,
                         ),
-                        padding: EdgeInsets.all(2.w),
+                        padding: EdgeInsets.all(4.w),
                         child: Row(
                           children: [
                             Text(
-                              student['id']??"",
+                              student['id'] ?? "",
                               style: TextStyle(
                                 fontSize: 6.5.sp,
-
                                 color: customColors?.primaryTextColor,
                               ),
                             ),
-                          Spacer(),
+                            Spacer(),
                             Text(
                               student['name'],
                               style: TextStyle(
                                 fontSize: 6.5.sp,
                                 fontWeight: FontWeight.w600,
-                                color: customColors?.primaryTextColor,
+                                color: customColors?.secondaryTextColor,
                               ),
                             ),
                             Spacer(),
                             _statusIcon("P", Colors.green),
-                            SizedBox(width: 1.w),
+                            SizedBox(width: 2.w),
                             _statusIcon("A", Colors.red),
-                            SizedBox(width: 1.w),
+                            SizedBox(width: 2.w),
                             _statusIcon("L", Colors.blue.shade200),
                           ],
                         ),
                       );
                     },
                   ),
+                ),
+                PrimaryButton(
+                  text: 'Submit',
+                  onPressed: () {},
+                  color: customColors?.buttonColor,
                 ),
               ],
             ),
@@ -159,6 +145,7 @@ class StudentAttendenceView extends GetView<StudentAttendenceController> {
     );
   }
 }
+
 Widget _statusIcon(String text, Color color) {
   return Container(
     width: 6.w,

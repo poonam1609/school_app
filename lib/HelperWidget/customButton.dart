@@ -36,11 +36,10 @@ class PrimaryButton extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           if (icon != null) ...[
-            Icon(icon, size: 7.sp, color:customColors.primaryTextColor ),
+            Icon(icon, size: 7.sp, color:Colors.white ),
             SizedBox(width: 2.w),
           ],
           Text(
-
             text,
             style: TextStyle(
               color:Colors.white,

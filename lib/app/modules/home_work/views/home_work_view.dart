@@ -344,8 +344,7 @@ class HomeWorkView extends GetView<HomeWorkController> {
             maxLines: 5,
             decoration: InputDecoration(
               filled: true,
-              fillColor: customColors?.containerBackgroundColor,
-
+              fillColor: customColors.containerBackgroundColor,
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(1.h),
                 borderSide: BorderSide(color:  Colors.grey, width: 1),
@@ -362,7 +361,6 @@ class HomeWorkView extends GetView<HomeWorkController> {
                 borderRadius: BorderRadius.circular(1.h),
                 borderSide: BorderSide(color: Colors.red, width: 1),
               ),
-
               border: OutlineInputBorder(
                 borderSide: BorderSide( color:  Colors.grey, width: 1,),
                 borderRadius: BorderRadius.circular(1.h),
@@ -372,7 +370,7 @@ class HomeWorkView extends GetView<HomeWorkController> {
           SizedBox(height: 2.h),
           Row(
             children: [
-              Text("Add Attachment", style: TextStyle(color:customColors?.primaryTextColor, fontSize: 5.6.sp)),
+              Text("Add Attachment", style: TextStyle(color:customColors.primaryTextColor, fontSize: 5.6.sp)),
               SizedBox(width: 2.w),
               Icon(Icons.attachment_sharp, color: Colors.grey),
             ],
